@@ -1,0 +1,31 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# result artifacts — regenerated, never committed
+result/
+results/
+runs/
+wandb/
+*.pt
+*.ckpt
+*.safetensors
+*.mp4
+*.hdf5
+.done
+run_all_*.md
+run_all_console_*.log
+**/logs/
+**/ckpt/
+**/rollouts/
+
+# hf / caches
+.cache/
+*.incomplete
+
+# editor / os
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,360 @@
+<title>OLIVE Code Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#f5f6f8;
+    --surface:#ffffff;
+    --surface-2:#eceff4;
+    --ink:#1a2130;
+    --ink-soft:#5a6474;
+    --rule:#d3d9e2;
+    --rule-strong:#b6bfce;
+    --accent:#bd7128;
+    --accent-tint:#f3e7d6;
+    --frozen:#68738b;
+    --good:#3f7d55;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#10131a; --surface:#181c25; --surface-2:#20242f;
+      --ink:#e7eaf1; --ink-soft:#98a2b4; --rule:#2c333f; --rule-strong:#3d4655;
+      --accent:#e2953f; --accent-tint:#33281b; --frozen:#8b94a6; --good:#5fa377;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#10131a; --surface:#181c25; --surface-2:#20242f;
+    --ink:#e7eaf1; --ink-soft:#98a2b4; --rule:#2c333f; --rule-strong:#3d4655;
+    --accent:#e2953f; --accent-tint:#33281b; --frozen:#8b94a6; --good:#5fa377;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:56px 24px 96px}
+
+  header{margin-bottom:8px}
+  .kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);margin:0 0 10px;
+  }
+  h1{font-size:34px;line-height:1.15;font-weight:700;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+  .lede{font-size:16px;color:var(--ink-soft);max-width:64ch;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+  .lede code{font-family:var(--mono);font-size:.92em;color:var(--ink)}
+
+  section{margin-top:52px}
+  h2{
+    font-size:13px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;margin:0 0 6px;padding-bottom:8px;border-bottom:1px solid var(--rule);
+  }
+  .h2-note{font-size:13px;color:var(--ink-soft);margin:0 0 22px}
+  .h2-note code{font-family:var(--mono);font-size:.92em;color:var(--ink)}
+
+  figure{margin:0}
+  .figframe{
+    background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+    padding:22px;overflow-x:auto;
+  }
+  .figframe svg{display:block;max-width:100%;height:auto;color:var(--ink);min-width:600px}
+  .figframe svg text{font-family:var(--sans)}
+  .figframe svg .m{font-family:var(--mono)}
+  figcaption{font-size:13px;color:var(--ink-soft);margin-top:12px;max-width:72ch}
+  figcaption b{color:var(--ink);font-weight:600}
+  figcaption code{font-family:var(--mono);font-size:.92em;color:var(--ink)}
+
+  .legend{
+    display:flex;flex-wrap:wrap;gap:14px 26px;margin:22px 0 0;padding:0;list-style:none;
+    font-size:13px;color:var(--ink-soft);
+  }
+  .legend li{display:flex;align-items:center;gap:9px}
+  .swatch{width:26px;height:16px;border-radius:3px;flex:none}
+  .sw-train{background:var(--accent-tint);border:1.5px solid var(--accent)}
+  .sw-frozen{background:transparent;border:1.5px dashed var(--frozen)}
+  .sw-artifact{background:var(--surface-2);border:1.5px solid var(--rule-strong)}
+  .legend code{font-family:var(--mono);color:var(--ink)}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+  th,td{text-align:left;padding:11px 16px;vertical-align:top;border-bottom:1px solid var(--rule)}
+  tbody tr:last-child td{border-bottom:0}
+  thead th{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;background:var(--surface-2);
+  }
+  td.file{font-family:var(--mono);color:var(--ink);white-space:nowrap;font-weight:500}
+  td .sym{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+  .tag{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;
+    padding:1px 7px;border-radius:100px;border:1px solid currentColor;line-height:1.7;
+  }
+  .tag.t{color:var(--accent)} .tag.f{color:var(--frozen)} .tag.g{color:var(--ink-soft)}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media (max-width:680px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 20px}
+  .card h3{font-size:14px;margin:0 0 12px;font-weight:600}
+  .card ul{margin:0;padding-left:18px}
+  .card li{margin:8px 0;font-size:13.5px;color:var(--ink-soft)}
+  .card li b{color:var(--ink);font-weight:600}
+  .card li code{font-family:var(--mono);font-size:.9em;color:var(--ink)}
+  .gap-num{font-family:var(--mono);color:var(--accent);font-weight:600;margin-right:6px}
+
+  .foot{margin-top:56px;font-size:12.5px;color:var(--ink-soft);font-family:var(--mono)}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="kicker">~/olive/olive &nbsp;·&nbsp; 13 modules &nbsp;·&nbsp; ~2.8k LOC</p>
+    <h1>OLIVE Code Flow</h1>
+    <p class="lede">A frozen 7B VLA, a <b>trainable ~2.16&nbsp;M z-space head</b>, and one per-timestep core that BC, PPO, and eval each wrap differently. Everything routes through <code>train.py --phase {bc|ppo|all}</code>.</p>
+    <ul class="legend">
+      <li><span class="swatch sw-train"></span> trainable &mdash; <code>Actor</code> W1/W2, <code>Critic</code> W3/W4, <code>log_std</code></li>
+      <li><span class="swatch sw-frozen"></span> frozen &mdash; VLA (7B), basis <code>B</code>, LM head</li>
+      <li><span class="swatch sw-artifact"></span> checkpoint / metric produced</li>
+    </ul>
+  </header>
+
+  <!-- ===================== FIGURE A : the core ===================== -->
+  <section>
+    <h2>1 &nbsp;·&nbsp; The per-timestep core</h2>
+    <p class="h2-note">One observation &rarr; one 7-DoF action. Reused verbatim by every phase; only the decode mode and how <code>z</code> is drawn change.</p>
+    <figure>
+      <div class="figframe">
+        <svg viewBox="0 0 660 636" role="img" aria-label="Single-timestep data flow. The observation (agentview image plus instruction) passes through rollout.get_prefill_state, a frozen VLA prefill with no gradient, producing hidden state h0 of shape one by one by four thousand ninety six. h0 feeds the trainable network.Actor, which outputs a Gaussian over a 256-dimensional latent z, and the trainable network.Critic, which outputs a scalar value. The projection module computes delta-h as z times the frozen action basis B, then h-prime as h0 plus alpha times delta-h. A frozen decode applies the LM head to h-prime over 7 steps, either greedily without gradient for rollout and eval, or softly with gradient for BC so the gradient reaches mu_z. The resulting normalized 7-D action is un-normalized and gripper-processed into a_robot, which libero_env steps in the simulator, returning the next observation and a done flag; reward.compute_reward_paper turns done and the step index into the reward.">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+            </marker>
+            <marker id="aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+            </marker>
+          </defs>
+
+          <!-- spine -->
+          <g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ah)">
+            <line x1="330" y1="60"  x2="330" y2="88"/>
+            <line x1="330" y1="146" x2="330" y2="176"/>
+            <line x1="330" y1="212" x2="330" y2="356"/>
+            <line x1="330" y1="418" x2="330" y2="448"/>
+            <line x1="330" y1="504" x2="330" y2="534"/>
+            <line x1="330" y1="572" x2="330" y2="590"/>
+          </g>
+
+          <!-- obs -->
+          <rect x="212" y="24" width="236" height="36" rx="6" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="330" y="47" text-anchor="middle" font-size="13" fill="currentColor">obs&nbsp;:&nbsp;agentview image&nbsp;+&nbsp;instruction</text>
+
+          <!-- prefill -->
+          <rect x="176" y="88" width="308" height="58" rx="7" fill="none" stroke="var(--frozen)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="330" y="110" text-anchor="middle" font-size="13" class="m" fill="currentColor">rollout.get_prefill_state</text>
+          <text x="330" y="129" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">frozen VLA prefill, no_grad</text>
+
+          <!-- h0 -->
+          <rect x="256" y="176" width="148" height="36" rx="18" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="330" y="199" text-anchor="middle" font-size="13" class="m" fill="currentColor">h0 : (1,1,4096)</text>
+
+          <!-- branch to Actor / Critic -->
+          <g stroke="var(--accent)" stroke-width="1.5" fill="none" marker-end="url(#aha)">
+            <path d="M256 194 H132 V232"/>
+            <path d="M404 194 H528 V232"/>
+            <path d="M132 316 V342 H322"/>
+            <path d="M528 316 V346 H322"/>
+          </g>
+
+          <!-- Actor -->
+          <rect x="24" y="232" width="216" height="84" rx="7" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>
+          <text x="132" y="255" text-anchor="middle" font-size="13" class="m" fill="currentColor">network.Actor(h0)</text>
+          <text x="132" y="274" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">&mu;_z ,&nbsp;&sigma;_z &nbsp; (dim 256)</text>
+          <text x="132" y="298" text-anchor="middle" font-size="12.5" class="m" fill="currentColor">z ~ N(&mu;_z, &sigma;_z)</text>
+
+          <!-- Critic -->
+          <rect x="420" y="232" width="216" height="84" rx="7" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>
+          <text x="528" y="255" text-anchor="middle" font-size="13" class="m" fill="currentColor">network.Critic(h0)</text>
+          <text x="528" y="274" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">state value</text>
+          <text x="528" y="298" text-anchor="middle" font-size="12.5" class="m" fill="currentColor">V(s) &isin; R</text>
+
+          <!-- projection -->
+          <rect x="168" y="356" width="324" height="62" rx="7" fill="none" stroke="var(--frozen)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="330" y="378" text-anchor="middle" font-size="13" class="m" fill="currentColor">projection.ActionBasisProjection</text>
+          <text x="330" y="398" text-anchor="middle" font-size="11.5" class="m" fill="var(--ink-soft)">&Delta;h = z&middot;B_inject &nbsp;&rarr;&nbsp; h' = h0 + &alpha;&middot;&Delta;h</text>
+
+          <!-- decode -->
+          <rect x="176" y="448" width="308" height="56" rx="7" fill="none" stroke="var(--frozen)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="330" y="469" text-anchor="middle" font-size="13" class="m" fill="currentColor">decode &mdash; LM_Head(h'), 7 steps</text>
+          <text x="330" y="488" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">greedy&nbsp;·&nbsp;no_grad (rollout, eval) &nbsp;|&nbsp; soft&nbsp;·&nbsp;grad (BC &rarr; &mu;_z)</text>
+
+          <!-- action post -->
+          <rect x="196" y="534" width="268" height="38" rx="6" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="330" y="558" text-anchor="middle" font-size="12" class="m" fill="currentColor">a_norm[7] &rarr; unnorm + gripper &rarr; a_robot</text>
+
+          <!-- env -->
+          <rect x="222" y="590" width="216" height="34" rx="6" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="330" y="612" text-anchor="middle" font-size="12" class="m" fill="currentColor">libero_env.make_env&nbsp;·&nbsp;env.step</text>
+
+          <!-- loop back -->
+          <path d="M438 607 H600 V42 H450" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+          <text x="614" y="325" text-anchor="middle" font-size="10.5" class="m" fill="var(--ink-soft)" transform="rotate(90 614 325)">obs' , done</text>
+
+          <!-- reward tap -->
+          <path d="M222 607 H150 V596" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 3"/>
+          <text x="120" y="588" text-anchor="middle" font-size="10" class="m" fill="var(--ink-soft)">reward.compute_reward_paper</text>
+        </svg>
+      </div>
+      <figcaption><b>z lives in a 256-D latent, not the 7-D action space.</b> The policy is Gaussian over <code>z</code>; the residual it induces, <code>&Delta;h = z&middot;B</code>, is confined to the frozen LM head's action-token rows. Rollout samples <code>z</code> and decodes greedily; eval uses <code>z = &mu;_z</code>; BC keeps decode differentiable so gradient reaches the Actor.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== FIGURE B : phases ===================== -->
+  <section>
+    <h2>2 &nbsp;·&nbsp; Three phases wrap the core</h2>
+    <p class="h2-note">Shared setup builds backbone + head once; then one of BC / PPO / eval runs, each producing its own artifact.</p>
+    <figure>
+      <div class="figframe">
+        <svg viewBox="0 0 900 566" role="img" aria-label="A shared setup — config.build_config into train.py main — loads the frozen VLA and builds the trainable ActorCritic and the projection, and optionally loads an init checkpoint. It fans out to three phases. Phase BC (bc_warmup): LIBERO-plus demo HDF5 becomes frames; the core runs with soft decode; loss is action MSE against the expert plus value MSE against return-to-go; output is after_bc.pt plus per-epoch copies. Phase PPO loop (train.py, rollout.py, ppo_trainer.py): rollout.collect_rollouts uses a round-robin task cursor with greedy stochastic decode to fill a RolloutBuffer of h0, z, log-prob, value, reward, done, plus GAE; ppo_trainer.PPOTrainer.update applies negative clipped surrogate plus half the value loss minus an entropy term, with target-KL early stopping; output is best.pt and periodic itNNNN.pt; after_bc.pt initializes this phase. Phase eval (evaluate.evaluate_suite): all tasks times N episodes, core with greedy deterministic decode at z equals mu_z, giving per-task and total success rate. All three phases log to Weights and Biases project olive-libero.">
+          <defs>
+            <marker id="bh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <!-- setup -->
+          <rect x="248" y="16" width="404" height="68" rx="8" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="450" y="38" text-anchor="middle" font-size="13" class="m" fill="currentColor">config.build_config &nbsp;&rarr;&nbsp; train.py&nbsp;:&nbsp;main</text>
+          <text x="450" y="57" text-anchor="middle" font-size="11" fill="var(--ink-soft)">backbone.load_backbone (VLA ❄) &nbsp;·&nbsp; network.ActorCritic &nbsp;·&nbsp; projection</text>
+          <text x="450" y="75" text-anchor="middle" font-size="10.5" class="m" fill="var(--ink-soft)">--init-ckpt &rarr; checkpoint.load</text>
+
+          <g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#bh)">
+            <path d="M450 84 V102 H150 V126"/>
+            <path d="M450 84 V126"/>
+            <path d="M450 84 V102 H750 V126"/>
+          </g>
+
+          <!-- BC column -->
+          <rect x="24" y="126" width="252" height="292" rx="9" fill="var(--surface)" stroke="var(--rule)" stroke-width="1.5"/>
+          <text x="40" y="148" font-size="11.5" class="m" letter-spacing=".08em" fill="var(--good)">PHASE&nbsp;·&nbsp;BC</text>
+          <text x="40" y="164" font-size="10.5" class="m" fill="var(--ink-soft)">bc_warmup.bc_warmup</text>
+          <g font-size="11.5" fill="currentColor">
+            <rect x="40" y="176" width="220" height="32" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="50" y="196">LIBERO-plus demo HDF5 &rarr; frames</text>
+            <rect x="40" y="216" width="220" height="32" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="50" y="236">run CORE&nbsp;&nbsp;<tspan class="m">soft</tspan> decode</text>
+            <rect x="40" y="256" width="220" height="48" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="50" y="275">MSE(a, expert_a_norm)</text>
+            <text x="50" y="292">MSE(V, return-to-go)</text>
+          </g>
+          <line x1="150" y1="304" x2="150" y2="336" stroke="currentColor" stroke-width="1.5" marker-end="url(#bh)"/>
+          <rect x="58" y="336" width="184" height="34" rx="5" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="150" y="358" text-anchor="middle" font-size="12" class="m" fill="currentColor">after_bc.pt</text>
+          <text x="150" y="392" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">+ after_bc_ep{1,2,3}.pt</text>
+
+          <!-- PPO column -->
+          <rect x="300" y="126" width="300" height="356" rx="9" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>
+          <text x="316" y="148" font-size="11.5" class="m" letter-spacing=".08em" fill="var(--accent)">PHASE&nbsp;·&nbsp;PPO LOOP</text>
+          <text x="316" y="164" font-size="10.5" class="m" fill="var(--ink-soft)">train.py + rollout.py + ppo_trainer.py</text>
+          <g font-size="11.5" fill="currentColor">
+            <rect x="316" y="176" width="268" height="48" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="326" y="195">rollout.collect_rollouts</text>
+            <text x="326" y="212" font-size="10.5" fill="var(--ink-soft)">round-robin task_cursor · greedy · z~N</text>
+            <rect x="316" y="232" width="268" height="48" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="326" y="251">RolloutBuffer{h0,z,logp,V,r,done}</text>
+            <text x="326" y="268" font-size="10.5" fill="var(--ink-soft)">+ compute_gae(&gamma;=.99, &lambda;=.95)</text>
+            <rect x="316" y="288" width="268" height="62" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="326" y="307">ppo_trainer.PPOTrainer.update</text>
+            <text x="326" y="323" font-size="10.5" fill="var(--ink-soft)">&minus;clip surrogate + .5&middot;V_loss &minus; c&middot;entropy</text>
+            <text x="326" y="339" font-size="10.5" fill="var(--ink-soft)">approx_kl &gt; 1.5&middot;target_kl &rarr; stop epoch</text>
+          </g>
+          <text x="450" y="370" text-anchor="middle" font-size="10.5" class="m" fill="var(--ink-soft)">every eval_every &rarr; evaluate_suite</text>
+          <line x1="450" y1="376" x2="450" y2="404" stroke="currentColor" stroke-width="1.5" marker-end="url(#bh)"/>
+          <rect x="356" y="404" width="188" height="34" rx="5" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="450" y="426" text-anchor="middle" font-size="12" class="m" fill="currentColor">best.pt&nbsp;/&nbsp;itNNNN.pt</text>
+
+          <!-- init arrow -->
+          <path d="M242 353 H272 Q300 353 300 325 V292" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#bh)"/>
+          <text x="286" y="376" font-size="10" class="m" fill="var(--accent)">init</text>
+
+          <!-- EVAL column -->
+          <rect x="624" y="126" width="252" height="236" rx="9" fill="var(--surface)" stroke="var(--rule)" stroke-width="1.5"/>
+          <text x="640" y="148" font-size="11.5" class="m" letter-spacing=".08em" fill="currentColor">PHASE&nbsp;·&nbsp;EVAL</text>
+          <text x="640" y="164" font-size="10.5" class="m" fill="var(--ink-soft)">evaluate.evaluate_suite</text>
+          <g font-size="11.5" fill="currentColor">
+            <rect x="640" y="176" width="220" height="46" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="650" y="194">all tasks &times; N episodes</text>
+            <text x="650" y="211" font-size="10.5" fill="var(--ink-soft)">CORE · greedy · z = &mu;_z</text>
+            <rect x="640" y="230" width="220" height="32" rx="5" fill="var(--surface-2)" stroke="var(--rule)"/>
+            <text x="650" y="250">per-task SR &rarr; TOTAL SR</text>
+          </g>
+          <line x1="750" y1="262" x2="750" y2="290" stroke="currentColor" stroke-width="1.5" marker-end="url(#bh)"/>
+          <rect x="666" y="290" width="168" height="34" rx="5" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="750" y="312" text-anchor="middle" font-size="12" class="m" fill="currentColor">TOTAL SR</text>
+
+          <!-- wandb -->
+          <line x1="150" y1="418" x2="150" y2="506" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 3"/>
+          <line x1="450" y1="438" x2="450" y2="506" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 3"/>
+          <line x1="750" y1="324" x2="750" y2="506" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 3"/>
+          <rect x="120" y="506" width="660" height="46" rx="7" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+          <text x="450" y="526" text-anchor="middle" font-size="12" class="m" fill="currentColor">wandb&nbsp;·&nbsp;project olive-libero</text>
+          <text x="450" y="543" text-anchor="middle" font-size="9.5" class="m" fill="var(--ink-soft)">train/rollout_sr {iter,ema,cum} · ppo/{policy_loss,value_loss,approx_kl,grad_norm} · eval/total_sr</text>
+        </svg>
+      </div>
+      <figcaption><b><code>run_all_suites.sh</code></b> chains <code>01&rarr;02&rarr;03</code> per suite, each starting from that suite's own SFT checkpoint (<code>openvla-7b-finetuned-libero-&lt;suite&gt;</code>) auto-fetched by <code>_env.sh</code>.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== MODULE TABLE ===================== -->
+  <section>
+    <h2>3 &nbsp;·&nbsp; Module ownership</h2>
+    <p class="h2-note">Imports are one-way: <code>train.py</code> composes everything; leaf modules don't import each other, except <code>evaluate</code> &rarr; <code>rollout</code> / <code>libero_env</code>.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>file</th><th>owns</th><th>key symbols</th></tr></thead>
+        <tbody>
+          <tr><td class="file">config.py</td><td>every knob &mdash; nested dataclasses, CLI <span class="sym">--set a.b.c=v</span>, ablation presets</td><td><span class="sym">OliveConfig · {Network,Projection,BC,Rollout,Reward,PPO}Config · build_config · ABLATIONS</span></td></tr>
+          <tr><td class="file">backbone.py</td><td><span class="tag f">frozen</span> load VLA + processor; pull vocab / hidden_dim / norm_stats. No openvla import.</td><td><span class="sym">load_backbone · BackboneMeta</span></td></tr>
+          <tr><td class="file">network.py</td><td><span class="tag t">trainable</span> Actor (h&rarr;&mu;_z,&sigma;_z) · Critic (h&rarr;V) · log_std &mdash; ~2.16&nbsp;M, float32</td><td><span class="sym">ActorCritic · Actor · Critic — .act, .evaluate_z</span></td></tr>
+          <tr><td class="file">projection.py</td><td><span class="tag f">frozen</span> basis <span class="sym">B=W_lmhead[-256:]</span> · <span class="sym">&Delta;h=z&middot;B</span> · <span class="sym">h'=h+&alpha;&Delta;h</span> · 7-step decode (greedy + soft)</td><td><span class="sym">ActionBasisProjection — apply_residual, decode_action, decode_action_soft, z_to_action[_soft]</span></td></tr>
+          <tr><td class="file">reward.py</td><td>Eq. 12 &mdash; <span class="sym">+1 if done else &minus;&lambda;t</span></td><td><span class="sym">compute_reward_paper · make_reward_fn</span></td></tr>
+          <tr><td class="file">libero_env.py</td><td>LIBERO import isolation &mdash; task suite, env, 180&deg; image preprocess (openvla parity)</td><td><span class="sym">make_task_suite · make_env · get_task_init_states · get_image · TASK_MAX_STEPS</span></td></tr>
+          <tr><td class="file">rollout.py</td><td>prefill, transition store + GAE, episode / multi-task collection with persistent cursor</td><td><span class="sym">get_prefill_state · RolloutBuffer(+compute_gae) · collect_episode · collect_rollouts</span></td></tr>
+          <tr><td class="file">ppo_trainer.py</td><td>clipped surrogate + value + entropy, LR schedule, grad clip, target-KL early stop</td><td><span class="sym">PPOConfig · PPOTrainer.update</span></td></tr>
+          <tr><td class="file">bc_warmup.py</td><td>LIBERO demo supervised warm-up &mdash; Actor BC (soft decode) + Critic return-to-go</td><td><span class="sym">bc_warmup · _iter_frames · _find_demo_files</span></td></tr>
+          <tr><td class="file">evaluate.py</td><td>deterministic SR over a whole suite; optional wandb run</td><td><span class="sym">evaluate_suite · _cli</span></td></tr>
+          <tr><td class="file">checkpoint.py</td><td>save/load head (+optimizer, +config snapshot); <span class="sym">latest()</span></td><td><span class="sym">save · load · latest</span></td></tr>
+          <tr><td class="file">train.py</td><td><span class="tag g">driver</span> setup &rarr; [BC] &rarr; PPO loop &rarr; periodic eval / ckpt / wandb; SR iter&middot;ema&middot;cum</td><td><span class="sym">main · _ppo_config_from</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== DEVIATIONS + GAPS ===================== -->
+  <section>
+    <h2>4 &nbsp;·&nbsp; Deviations &amp; open gaps</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>Where this departs from the paper</h3>
+        <ul>
+          <li><b>z-space policy.</b> Gaussian over the 256-D latent, not the 7-D action &mdash; rollout decodes greedily, no gradient through the backbone.</li>
+          <li><b>BC warm-up added.</b> Last run used <code>bc.targets = critic</code> (Actor BC was a no-op).</li>
+          <li><b>PPO defaults retuned</b> after KL blew up: <code>entropy_per_dim=True</code>, <code>target_kl=0.05</code>, <code>lr_start=1e-4</code>. Paper values via <code>--ablation paper_ppo</code>.</li>
+          <li><b>Round-robin cursor</b> persists across PPO iterations so tasks are visited evenly.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Known gaps &mdash; next work</h3>
+        <ul>
+          <li><span class="gap-num">1</span><b>Value targets un-normalized</b> &rarr; grad-norm 500&ndash;2000 hard-clipped &rarr; near-zero effective update. Add running mean/std on returns in <code>ppo_trainer.py</code>.</li>
+          <li><span class="gap-num">2</span><b>Rollout &amp; eval are batch-1, sequential.</b> Vectorize the envs so a 50k-step run is hours, not days.</li>
+          <li><span class="gap-num">3</span><b>Actor BC gradient is tiny</b> &mdash; the soft-decode softmax is probably saturating.</li>
+          <li><span class="gap-num">4</span><code>reward.LAMBDA_STEP</code> and <code>ppo.total_steps</code> aren't pinned by the paper.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">run from ~/olive/olive &nbsp;&mdash;&nbsp; python train.py --phase {bc|ppo|all} &nbsp;·&nbsp; scripts/ 01_bc &rarr; 02_ppo &rarr; 03_eval &rarr; run_all_suites</p>
+</div>

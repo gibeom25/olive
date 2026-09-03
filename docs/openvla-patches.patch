@@ -1,0 +1,62 @@
+diff --git a/experiments/robot/libero/libero_utils.py b/experiments/robot/libero/libero_utils.py
+index 70a5d70..5f6b84e 100644
+--- a/experiments/robot/libero/libero_utils.py
++++ b/experiments/robot/libero/libero_utils.py
+@@ -60,7 +60,7 @@ def get_libero_image(obs, resize_size):
+ 
+ def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
+     """Saves an MP4 replay of an episode."""
+-    rollout_dir = f"./rollouts/{DATE}"
++    rollout_dir = f"{os.environ.get('LIBERO_ROLLOUT_DIR', './rollouts')}/{DATE}"
+     os.makedirs(rollout_dir, exist_ok=True)
+     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
+     mp4_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.mp4"
+diff --git a/experiments/robot/libero/run_libero_eval.py b/experiments/robot/libero/run_libero_eval.py
+index 5c3f581..2f3eda4 100644
+--- a/experiments/robot/libero/run_libero_eval.py
++++ b/experiments/robot/libero/run_libero_eval.py
+@@ -268,6 +268,14 @@ def eval_libero(cfg: GenerateConfig) -> None:
+                 }
+             )
+ 
++        # Tear down this task's sim/EGL render context deterministically (while EGL
++        # is still initialized) instead of leaving it to GC at interpreter exit,
++        # which raises harmless "EGLError: EGL_NOT_INITIALIZED" in __del__.
++        try:
++            env.close()
++        except Exception:
++            pass
++
+     # Save local log file
+     log_file.close()
+ 
+diff --git a/experiments/robot/openvla_utils.py b/experiments/robot/openvla_utils.py
+index e12e9a2..a7423db 100644
+--- a/experiments/robot/openvla_utils.py
++++ b/experiments/robot/openvla_utils.py
+@@ -42,7 +42,7 @@ def get_vla(cfg):
+ 
+     vla = AutoModelForVision2Seq.from_pretrained(
+         cfg.pretrained_checkpoint,
+-        attn_implementation="flash_attention_2",
++        attn_implementation=os.environ.get("OPENVLA_ATTN", "flash_attention_2"),
+         torch_dtype=torch.bfloat16,
+         load_in_8bit=cfg.load_in_8bit,
+         load_in_4bit=cfg.load_in_4bit,
+diff --git a/pyproject.toml b/pyproject.toml
+index f72cae0..d655af2 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -44,9 +44,9 @@ dependencies = [
+     "sentencepiece==0.1.99",
+     "timm==0.9.10",
+     "tokenizers==0.19.1",
+-    "torch==2.2.0",
+-    "torchvision==0.17.0",
+-    "torchaudio==2.2.0",
++    "torch>=2.2.0",          # relaxed: Blackwell (sm_120) needs torch>=2.7.0+cu128
++    "torchvision>=0.17.0",
++    "torchaudio>=2.2.0",
+     "transformers==4.40.1",
+     "wandb",
+     "tensorflow==2.15.0",
