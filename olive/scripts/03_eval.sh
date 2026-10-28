@@ -7,6 +7,7 @@
 #   SUITE=libero_spatial ABLATION=main ./03_eval.sh                # best.pt
 #   HEAD_CKPT=~/olive/result/olive-libero_spatial-main/ckpt/it0050.pt ./03_eval.sh
 #   EVAL_EPISODES=50 ./03_eval.sh
+#   VIDEOS_PER_TASK=0 ./03_eval.sh     # rollout mp4 저장 끔 (기본 task 당 1개 → $RUN_DIR/videos)
 set -eo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 source ./_env.sh
@@ -55,6 +56,8 @@ python "$OLIVE_SRC/evaluate.py" \
   --inject_basis "$INJECT" \
   --episodes_per_task "${EVAL_EPISODES:-20}" \
   --device "${DEVICE:-cuda:0}" \
+  --video_dir "$RUN_DIR/videos" --videos_per_task "${VIDEOS_PER_TASK:-1}" \
+  --out_json "$RUN_DIR/final_eval.json" \
   "${WB_ARGS[@]}" \
   2>&1 | tee "$LOG"
 

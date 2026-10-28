@@ -30,6 +30,10 @@ else
   INIT_ARGS=(--no-bc --phase ppo)
 fi
 
+# 실행 중인 run_all 레인의 노브를 바꿀 때: result/.ppo_override.env 에 VAR=값 (이 단계 시작 시점에 읽음)
+OVERRIDE_ENV="$OLIVE_ROOT/result/.ppo_override.env"
+[[ -f "$OVERRIDE_ENV" ]] && { echo "[02] override: $OVERRIDE_ENV"; source "$OVERRIDE_ENV"; }
+
 EXTRA=()
 [[ -n "${PPO_TOTAL_STEPS:-}" ]] && EXTRA+=(--set "ppo.total_steps=${PPO_TOTAL_STEPS}")
 [[ -n "${PPO_BUFFER:-}" ]]      && EXTRA+=(--set "ppo.buffer_size=${PPO_BUFFER}")

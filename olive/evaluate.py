@@ -8,12 +8,26 @@ baseline_libero_eval.md 와 같은 조건(center_crop, 180° 전처리, suite �
 
 from __future__ import annotations
 
+import os
+
 import numpy as np
 import torch
 
 from libero_env import make_task_suite, make_env, get_task_init_states, get_image, get_dummy_action
 from reward import make_reward_fn
 from rollout import RolloutConfig, collect_episode
+
+
+def _save_video(frames, video_dir, suite_name, task_id, ep, success, desc, fps=30):
+    import imageio
+    os.makedirs(video_dir, exist_ok=True)
+    slug = desc.lower().replace(" ", "_").replace(".", "_")[:50]
+    path = os.path.join(video_dir, f"{suite_name}--task{task_id:02d}--ep{ep}--success={bool(success)}--{slug}.mp4")
+    w = imageio.get_writer(path, fps=fps)
+    for f in frames:
+        w.append_data(f)
+    w.close()
+    return path
 
 
 @torch.no_grad()
@@ -33,6 +47,8 @@ def evaluate_suite(
     device: str = "cuda:0",
     reward_fn=None,
     verbose: bool = True,
+    video_dir: str | None = None,
+    videos_per_task: int = 1,
 ) -> dict:
     actor_critic.eval()
     reward_fn = reward_fn or make_reward_fn()
@@ -49,14 +65,17 @@ def evaluate_suite(
         env, desc = make_env(task)
         succ = []
         for ep in range(episodes_per_task):
+            frames = [] if (video_dir and ep < videos_per_task) else None
             st = collect_episode(
                 env, inits[ep % len(inits)], desc,
                 vla=vla, processor=processor, actor_critic=actor_critic,
                 projection=projection, buffer=None, cfg=rcfg, reward_fn=reward_fn,
                 deterministic=True,
-                get_image=get_image, dummy_action=get_dummy_action,
+                get_image=get_image, dummy_action=get_dummy_action, frames=frames,
             )
             succ.append(float(st["success"]))
+            if frames:
+                _save_video(frames, video_dir, suite_name, task_id, ep, st["success"], desc)
         try:
             env.close()
         except Exception:
@@ -89,6 +108,9 @@ def _cli():
     p.add_argument("--device", default="cuda:0")
     p.add_argument("--inject_basis", default="lm_head")
     p.add_argument("--z_dim", type=int, default=256)
+    p.add_argument("--video_dir", default=None, help="주면 task 마다 앞 --videos_per_task 에피소드 mp4 저장")
+    p.add_argument("--videos_per_task", type=int, default=1)
+    p.add_argument("--out_json", default=None, help="주면 결과 dict 를 json 으로 저장")
     p.add_argument("--wandb_project", default=None, help="주면 결과를 wandb 에 기록 (<name>-eval run)")
     p.add_argument("--wandb_entity", default=None)
     p.add_argument("--wandb_name", default=None)
@@ -116,8 +138,13 @@ def _cli():
         vla=vla, processor=processor, actor_critic=ac, projection=proj,
         suite_name=a.suite, unnorm_key=a.suite, max_steps=TASK_MAX_STEPS[a.suite],
         episodes_per_task=a.episodes_per_task, device=a.device,
+        video_dir=a.video_dir, videos_per_task=a.videos_per_task,
     )
     print(f"\n{a.suite}: {res['total_sr']:.1%}")
+    if a.out_json:
+        import json
+        with open(a.out_json, "w") as f:
+            json.dump({**res, "ckpt": a.ckpt}, f, ensure_ascii=False, indent=1)
 
     if run is not None:
         run.log({"eval/total_sr": res["total_sr"], "eval/n_episodes": res["n_episodes"],

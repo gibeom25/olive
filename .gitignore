@@ -29,3 +29,10 @@ run_all_console_*.log
 .vscode/
 .idea/
 .DS_Store
+
+# local-only: downloaded VLA checkpoints, openvla clone, models symlink
+model_manager/openvla-*/
+models
+openvla/
+report/build/media/*.mp4
+!experiments/**/media/*.mp4

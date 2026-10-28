@@ -54,6 +54,7 @@ def _ppo_config_from(cfg) -> PPOConfig:
         entropy_coef=(p.entropy_coef / cfg.net.z_dim) if p.entropy_per_dim else p.entropy_coef,
         max_grad_norm=p.max_grad_norm, normalize_adv=p.normalize_adv,
         clip_value_loss=p.clip_value_loss, target_kl=p.target_kl,
+        normalize_value_loss=p.normalize_value_loss, separate_grad_clip=p.separate_grad_clip,
     )
 
 
@@ -185,9 +186,15 @@ def main(argv=None):
                 f"SR {it_sr:.2f} ema {sr_ema:.2f} cum {cum_sr:.2f}  "
                 f"π {logs['policy_loss']:+.3f}  V {logs['value_loss']:.3f}  "
                 f"H {logs['entropy']:+.1f}  KL {logs['approx_kl']:.3f}  "
-                f"gn {logs['grad_norm']:.2f}  lr {logs['lr']:.1e}  "
+                f"gn {logs['grad_norm']:.2f}/{logs['grad_norm_critic']:.2f}  "
+                f"σR {logs['ret_std']:.1f}  lr {logs['lr']:.1e}  "
                 f"({(time.time()-t0)/60:.1f}m)")
         print(line, flush=True)
+        _append_jsonl(os.path.join(cfg.run_dir, "metrics.jsonl"),
+                      {"kind": "iter", "iter": it, "global_step": trainer.global_step,
+                       "rollout_sr": it_sr, "rollout_sr_ema": sr_ema, "rollout_sr_cum": cum_sr,
+                       "mean_steps": rstat["mean_steps"], "minutes": (time.time() - t0) / 60,
+                       **{k: float(v) for k, v in logs.items()}})
         if run:
             run.log({"ppo/global_step": trainer.global_step,
                      "ppo/iter": it,
@@ -209,6 +216,9 @@ def main(argv=None):
             )
             sr = eval_res["total_sr"]
             print(f"[OLIVE]   eval SR {sr:.1%}", flush=True)
+            _append_jsonl(os.path.join(cfg.run_dir, "metrics.jsonl"),
+                          {"kind": "eval", "iter": it, "global_step": trainer.global_step,
+                           "total_sr": sr, "per_task": eval_res["per_task"]})
             if run:
                 run.log({"ppo/global_step": trainer.global_step, "eval/total_sr": sr})
             if sr > best_sr:
@@ -226,6 +236,15 @@ def main(argv=None):
     if run:
         run.summary["best_eval_sr"] = best_sr
         run.finish()
+
+
+def _append_jsonl(path, rec):
+    import json
+    try:
+        with open(path, "a") as f:
+            f.write(json.dumps(rec, ensure_ascii=False, default=float) + "\n")
+    except Exception as e:  # noqa: BLE001 — 지표 기록 실패로 학습을 죽이지 않음
+        print(f"[OLIVE] metrics.jsonl 기록 실패: {e}", flush=True)
 
 
 def _flat(cfg, prefix=""):

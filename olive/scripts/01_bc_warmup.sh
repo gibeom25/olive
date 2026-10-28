@@ -21,6 +21,7 @@ EXTRA=()
 [[ -n "${BC_MAX_DEMOS:-}" ]]    && EXTRA+=(--set "bc.max_demos=${BC_MAX_DEMOS}")
 [[ -n "${BC_LR:-}" ]]          && EXTRA+=(--set "bc.lr=${BC_LR}")
 [[ -n "${BC_DEMO_GLOB:-}" ]]    && EXTRA+=(--set "bc.demo_glob=${BC_DEMO_GLOB}")
+[[ "${NO_WANDB:-0}" == "1" ]]   && EXTRA+=(--no-wandb)
 
 LOG="$RUN_DIR/logs/01_bc_$(date +%Y%m%d_%H%M%S).log"
 echo "[01] BC warm-up -> $LOG"

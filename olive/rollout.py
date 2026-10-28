@@ -232,12 +232,14 @@ def collect_episode(
     deterministic: bool = False,
     get_image: Callable[[dict, int], np.ndarray] | None = None,
     dummy_action: Callable[[], list] | None = None,
+    frames: list | None = None,
 ) -> dict:
     """
     한 에피소드 굴리며 transition 을 buffer 에 추가. 성공/스텝수 등 통계 dict 반환.
 
     get_image(raw_obs, resize_size) -> HxWx3 uint8   (기본: experiments.robot.libero.libero_utils.get_libero_image)
     dummy_action() -> 7-list                          (기본: get_libero_dummy_action("openvla"))
+    frames: 주면 매 policy step 의 입력 이미지(HxWx3 uint8)를 append (rollout 영상용)
     """
     if get_image is None:
         from experiments.robot.libero.libero_utils import get_libero_image
@@ -261,6 +263,8 @@ def collect_episode(
             continue
 
         img = get_image(obs, cfg.resize_size)
+        if frames is not None:
+            frames.append(img)
         h0, pkv, mask = get_prefill_state(vla, processor, img, task_description, cfg)
 
         h0_f = h0.float()

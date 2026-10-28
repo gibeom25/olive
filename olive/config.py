@@ -113,6 +113,8 @@ class PPOConfig:
     normalize_adv: bool = True
     clip_value_loss: bool = False
     target_kl: Optional[float] = 0.05   # KL 이 1.5*target 넘으면 그 iteration 의 남은 epoch 중단
+    normalize_value_loss: bool = True   # [ablation] value loss / running Var(ret)  (2026-10-29 추가)
+    separate_grad_clip: bool = True     # [ablation] actor/critic grad 개별 클립   (2026-10-29 추가)
 
 
 @dataclass
@@ -190,6 +192,8 @@ ABLATIONS: dict[str, dict[str, Any]] = {
     "ent_full":      {"ppo.entropy_per_dim": False},   # 논문식 (per-dim 정규화 끔) — 비교용
     "paper_ppo":     {"ppo.lr_start": 3e-4, "ppo.entropy_per_dim": False, "ppo.target_kl": None},
     "alpha0.5":      {"proj.alpha": 0.5},
+    # 2026-09-02 동작 재현용 (value loss 정규화 / grad 개별 클립 끔)
+    "no_vnorm":      {"ppo.normalize_value_loss": False, "ppo.separate_grad_clip": False},
 }
 
 

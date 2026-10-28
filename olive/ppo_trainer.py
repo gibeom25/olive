@@ -40,6 +40,11 @@ class PPOConfig:
     normalize_adv: bool = True
     clip_value_loss: bool = False      # 논문 미언급 — 기본 off
     target_kl: float | None = None     # approx-KL 조기 종료 (None = 사용 안 함)
+    # value loss 를 return 의 running std² 로 나눔 (critic 출력 스케일은 raw 유지 → BC/GAE 호환).
+    # 2026-09-02 run 에서 (V-ret)² 이 수백~수천 → gn 500~2000 → 매 스텝 클립 → 실효 업데이트 극소.
+    normalize_value_loss: bool = True
+    # actor / critic grad 를 따로 클립 (critic grad 가 actor 업데이트까지 깎아먹지 않도록)
+    separate_grad_clip: bool = True
 
 
 class PPOTrainer:
@@ -50,6 +55,17 @@ class PPOTrainer:
         self.optimizer = torch.optim.Adam(params, lr=self.cfg.lr_start, eps=1e-5)
         self.global_step = 0            # 소비한 env step 누계 (LR schedule 기준)
         self._params = params
+        self._actor_params = list(self.ac.actor_parameters())
+        self._critic_params = list(self.ac.critic_parameters())
+        # return running mean/var (Welford, 배치 병합)
+        self.ret_mean, self.ret_var, self.ret_count = 0.0, 1.0, 1e-4
+
+    @torch.no_grad()
+    def _update_ret_stats(self, ret: torch.Tensor):
+        b_mean, b_var, b_n = ret.mean().item(), ret.var(unbiased=False).item(), ret.numel()
+        delta, tot = b_mean - self.ret_mean, self.ret_count + b_n
+        m2 = self.ret_var * self.ret_count + b_var * b_n + delta ** 2 * self.ret_count * b_n / tot
+        self.ret_mean, self.ret_var, self.ret_count = self.ret_mean + delta * b_n / tot, m2 / tot, tot
 
     # ── LR: total_steps 에 걸쳐 lr_start → lr_end 선형 ──
     def _lr_now(self) -> float:
@@ -74,12 +90,16 @@ class PPOTrainer:
         cfg = self.cfg
         buffer.compute_gae(last_value, cfg.gamma, cfg.gae_lambda, normalize_adv=cfg.normalize_adv)
         n = len(buffer)
+        if cfg.normalize_value_loss:
+            self._update_ret_stats(buffer.ret)
+        v_scale = 1.0 / max(self.ret_var, 1e-8) if cfg.normalize_value_loss else 1.0
 
         lr = self._lr_now()
         self._set_lr(lr)
 
         logs = {"policy_loss": 0.0, "value_loss": 0.0, "entropy": 0.0,
-                "approx_kl": 0.0, "clip_frac": 0.0, "grad_norm": 0.0, "n_minibatch": 0}
+                "approx_kl": 0.0, "clip_frac": 0.0, "grad_norm": 0.0, "n_minibatch": 0,
+                "value_loss_norm": 0.0, "grad_norm_critic": 0.0}
         stop = False
 
         for epoch in range(cfg.ppo_epochs):
@@ -103,22 +123,31 @@ class PPOTrainer:
                     value_loss = 0.5 * (value - ret).pow(2).mean()
                 else:
                     value_loss = 0.5 * (value - ret).pow(2).mean()
+                value_loss_raw = value_loss
+                value_loss = value_loss * v_scale
 
                 entropy_mean = entropy.mean()
                 loss = policy_loss + cfg.value_coef * value_loss - cfg.entropy_coef * entropy_mean
 
                 self.optimizer.zero_grad(set_to_none=True)
                 loss.backward()
-                grad_norm = nn.utils.clip_grad_norm_(self._params, cfg.max_grad_norm)
+                if cfg.separate_grad_clip:
+                    grad_norm = nn.utils.clip_grad_norm_(self._actor_params, cfg.max_grad_norm)
+                    grad_norm_c = nn.utils.clip_grad_norm_(self._critic_params, cfg.max_grad_norm)
+                else:
+                    grad_norm = nn.utils.clip_grad_norm_(self._params, cfg.max_grad_norm)
+                    grad_norm_c = grad_norm
                 self.optimizer.step()
 
                 d = self._diagnostics(ratio, adv, new_logp, old_logp)
                 logs["policy_loss"] += policy_loss.item()
-                logs["value_loss"] += value_loss.item()
+                logs["value_loss"] += value_loss_raw.item()
+                logs["value_loss_norm"] += value_loss.item()
                 logs["entropy"] += entropy_mean.item()
                 logs["approx_kl"] += d["approx_kl"]
                 logs["clip_frac"] += d["clip_frac"]
                 logs["grad_norm"] += float(grad_norm)
+                logs["grad_norm_critic"] += float(grad_norm_c)
                 logs["n_minibatch"] += 1
 
                 if cfg.target_kl is not None and d["approx_kl"] > 1.5 * cfg.target_kl:
@@ -126,8 +155,10 @@ class PPOTrainer:
                     break
 
         m = max(1, logs["n_minibatch"])
-        for k in ("policy_loss", "value_loss", "entropy", "approx_kl", "clip_frac", "grad_norm"):
+        for k in ("policy_loss", "value_loss", "value_loss_norm", "entropy", "approx_kl",
+                  "clip_frac", "grad_norm", "grad_norm_critic"):
             logs[k] /= m
+        logs["ret_std"] = math.sqrt(self.ret_var)
 
         self.global_step += n
         logs["lr"] = lr
@@ -140,6 +171,7 @@ class PPOTrainer:
         return {"actor_critic": self.ac.state_dict(),
                 "optimizer": self.optimizer.state_dict(),
                 "global_step": self.global_step,
+                "ret_stats": (self.ret_mean, self.ret_var, self.ret_count),
                 "cfg": dataclasses.asdict(self.cfg)}
 
     def load_state_dict(self, sd: dict, load_optimizer: bool = True):
@@ -147,6 +179,8 @@ class PPOTrainer:
         if load_optimizer and "optimizer" in sd:
             self.optimizer.load_state_dict(sd["optimizer"])
         self.global_step = sd.get("global_step", 0)
+        if "ret_stats" in sd:
+            self.ret_mean, self.ret_var, self.ret_count = sd["ret_stats"]
 
 
 if __name__ == "__main__":
