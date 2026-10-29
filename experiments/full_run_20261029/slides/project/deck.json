@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-29T13:10:00+09:00"},
+  "lists": "css",
+  "title": "OLIVE LIBERO 실험 발표",
+  "order": ["cover", "method", "setup", "result", "paper", "tasks", "stability", "examples", "takeaways"],
+  "sections": {
+    "s1": {"description": "무엇을 했나: OLIVE 구조와 실험 설정", "start": "cover"},
+    "s2": {"description": "결과: 4개 suite 성공률, 논문 수치와 비교, task 단위", "start": "result"},
+    "s3": {"description": "학습 안정성, 예시 영상, 정리와 다음 단계", "start": "stability"}
+  },
+  "faces": {
+    "ibm-plex-sans-kr": {"family": "IBM Plex Sans KR", "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"},
+    "ibm-plex-mono": {"family": "IBM Plex Mono", "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"}
+  },
+  "designSystems": []
+}

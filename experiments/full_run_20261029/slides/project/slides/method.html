@@ -1,0 +1,35 @@
+<section id="method" data-transition="fade" style="background:#f3f5f2;color:#15202b;font-family:'IBM Plex Sans KR', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:64px">
+<h2 style="font-size:72px;font-weight:700;line-height:1.1">방법: 행동 기저 위의 잠재 잔차</h2>
+<div style="display:flex;align-items:center;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;border:2px solid #d5dbe0;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">Frozen OpenVLA-7B</h3>
+<p style="font-size:24px;color:#4a5560">이미지 + 지시문 → 마지막 hidden state h</p>
+</div>
+<x-shape kind="arrow-right" style="width:64px;height:32px;background:#9aa3ab"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#e6effb;border:2px solid #2a6fd6;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600;color:#1d58b0">Actor MLP</h3>
+<p style="font-size:24px;color:#4a5560">h → z ∈ ℝ²⁵⁶ (학습 대상)</p>
+</div>
+<x-shape kind="arrow-right" style="width:64px;height:32px;background:#9aa3ab"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;border:2px solid #d5dbe0;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">Δh = z · B</h3>
+<p style="font-size:24px;color:#4a5560">B = LM head 의 행동 토큰 256행</p>
+</div>
+<x-shape kind="arrow-right" style="width:64px;height:32px;background:#9aa3ab"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;border:2px solid #d5dbe0;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">h′ = h + Δh</h3>
+<p style="font-size:24px;color:#4a5560">7-step decode → 로봇 행동 7차원</p>
+</div>
+</div>
+<div style="display:flex;gap:96px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:72px;font-weight:600;color:#1d58b0">2.16M</p>
+<p style="font-size:28px;color:#4a5560">학습 파라미터 (Actor 1.11M + Critic 1.05M)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:72px;font-weight:600;color:#1d58b0">0.03%</p>
+<p style="font-size:28px;color:#4a5560">7B backbone 대비 비율, backbone 은 완전 고정</p>
+</div>
+</div>
+<aside>OLIVE는 backbone을 건드리지 않습니다. 마지막 hidden state에 잔차 Δh를 더하는데, 그 잔차를 LM head의 행동 토큰 256개 행이 만드는 부분공간으로 제한합니다. 학습하는 것은 256차원 z를 내는 Actor와 가치를 예측하는 Critic, 합쳐 2.16M 파라미터뿐입니다.</aside>
+</section>

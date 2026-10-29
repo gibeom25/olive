@@ -1,0 +1,24 @@
+<section id="takeaways" data-transition="fade" style="background:#15202b;color:#f3f5f2;font-family:'IBM Plex Sans KR', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<h2 style="font-size:72px;font-weight:700;line-height:1.1;color:#f3f5f2">정리와 다음 단계</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<h3 style="font-size:36px;font-weight:600;color:#7fb2f0">이번 run 에서 확인한 것</h3>
+<ul style="font-size:30px;line-height:1.5;color:#dbe2e8">
+<li>5,000 step 에서 OLIVE ≈ Frozen OpenVLA (−4.5 ~ +4.5pp)</li>
+<li>Long 만 +4.5pp 로 논문 방향과 같음</li>
+<li>Object 하락(논문 38.5%)은 재현되지 않음</li>
+<li>Critic 학습 신호 회복, KL 안정</li>
+</ul>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<h3 style="font-size:36px;font-weight:600;color:#f0a37a">다음 실험</h3>
+<ul style="font-size:30px;line-height:1.5;color:#dbe2e8">
+<li>Actor gradient 스케일 조정 (log-prob 정규화 또는 actor 전용 clip)</li>
+<li>논문 설정 50,000 step, 병렬 rollout 으로 시간 단축</li>
+<li>Long / Goal 평가 에피소드 확대로 task 단위 차이 검증</li>
+<li>논문 baseline 과의 평가 설정 차이 확인</li>
+</ul>
+</div>
+</div>
+<aside>정리하면 5,000 step 설정에서는 아직 baseline과 구분되는 개선이 없습니다. 다음 순서는 Actor gradient 스케일 문제를 먼저 고치고, 그다음 논문 설정인 50,000 step으로 늘리는 것입니다. 50,000 step은 지금 구조로는 며칠이 걸려서 rollout 병렬화가 함께 필요합니다.</aside>
+</section>

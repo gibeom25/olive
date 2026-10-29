@@ -1,0 +1,22 @@
+<section id="stability" data-transition="fade" style="background:#15202b;color:#f3f5f2;font-family:'IBM Plex Sans KR', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:64px">
+<h2 style="font-size:72px;font-weight:700;line-height:1.1;color:#f3f5f2">학습 안정성: Critic 은 고쳐졌고 Actor 는 남음</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#1f2d3a;border-radius:16px;padding:40px">
+<p style="font-size:26px;color:#b9c4ce">Critic grad norm</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:64px;font-weight:600;color:#7fb2f0">0.3–2.7</p>
+<p style="font-size:26px;color:#b9c4ce;line-height:1.4">9월 run 500–2000 에서 낮아짐. value loss 정규화의 효과.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#1f2d3a;border-radius:16px;padding:40px">
+<p style="font-size:26px;color:#b9c4ce">Approx KL (최대)</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:64px;font-weight:600;color:#7fb2f0">≤ 0.17</p>
+<p style="font-size:26px;color:#b9c4ce;line-height:1.4">첫 PPO 시도의 24–1340 대비 안정. target 0.05 근처 유지.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#1f2d3a;border-radius:16px;padding:40px">
+<p style="font-size:26px;color:#b9c4ce">Actor grad norm</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:64px;font-weight:600;color:#f0a37a">84–330</p>
+<p style="font-size:26px;color:#b9c4ce;line-height:1.4">max 1.0 으로 매 스텝 클리핑. 256차원 log-prob 스케일 때문으로 추정.</p>
+</div>
+</div>
+<p style="font-size:30px;color:#b9c4ce;line-height:1.4">Critic 쪽 학습 신호는 회복됐지만 Actor 업데이트는 여전히 클리핑으로 크게 줄어듦. 5,000 step 동안 정책이 baseline 에서 거의 움직이지 않은 이유 후보.</p>
+<aside>이번 run에서 바꾼 value loss 정규화는 의도대로 작동했습니다. Critic gradient norm이 9월의 500에서 2000 수준에서 1 근처로 내려왔습니다. 그런데 Actor 쪽 gradient norm이 84에서 330으로 여전히 커서 매 스텝 1.0으로 잘립니다. 정책이 baseline 근처에 머문 이유 중 하나로 보고 있습니다.</aside>
+</section>

@@ -1,0 +1,14 @@
+<section id="setup" data-transition="fade" style="background:#f3f5f2;color:#15202b;font-family:'IBM Plex Sans KR', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<h2 style="font-size:72px;font-weight:700;line-height:1.1">실험 설정</h2>
+<table style="font-size:30px;color:#15202b">
+<tr><th style="width:24%;text-align:left">항목</th><th style="width:76%;text-align:left">설정</th></tr>
+<tr><td>Backbone</td><td>openvla-7b-finetuned-libero-{spatial, object, goal, 10}, suite 별 SFT 체크포인트 고정</td></tr>
+<tr><td>BC warm-up</td><td>LIBERO 데모로 Critic 만 return-to-go 회귀 (frame stride 15, 3 epoch)</td></tr>
+<tr><td>PPO</td><td>5,000 env step (buffer 512 × 10 iteration), lr 1e-4 → 1e-5, target KL 0.05</td></tr>
+<tr><td>이번 변경</td><td>value loss 를 return 분산으로 정규화, Actor / Critic gradient 개별 클리핑</td></tr>
+<tr><td>평가</td><td>결정론적(z = μ), task 당 10 에피소드 = suite 당 100 에피소드</td></tr>
+<tr><td>Baseline</td><td>같은 체크포인트·평가 코드·seed, task 당 20 에피소드 = suite 당 200 에피소드</td></tr>
+</table>
+<p style="font-size:26px;color:#4a5560">논문 Table 1 의 50,000 step 이 아니라 Algorithm 2 의 5,000 step 설정. RTX PRO 6000 1장에서 suite 3개를 병렬 실행, suite 당 3–6시간.</p>
+<aside>학습 규모는 논문 Table 1의 50,000 step이 아니라 Algorithm 2 본문의 5,000 step입니다. 시간 제약 때문이고, 결과 해석에서 이 점을 감안해야 합니다. Baseline은 9월에 같은 조건으로 200 에피소드씩 측정한 값을 쓰고, 이번에 task당 1 에피소드씩 다시 돌려 영상과 정합성을 확인했습니다.</aside>
+</section>

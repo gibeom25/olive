@@ -8,6 +8,18 @@ This repo is the working implementation + experiment log as of **2026‑09‑02*
 Result artifacts (checkpoints, rollout videos, wandb runs, logs) were **not** committed —
 only code, docs, and the experiment write‑up.
 
+## Latest run (2026-10-29)
+
+All four LIBERO suites, PPO 5,000 steps, final eval 100 episodes/suite — see
+`docs/experiment_log_2026-10-29.md` and `experiments/full_run_20261029/`.
+
+| suite | Frozen OpenVLA | OLIVE |
+|---|---|---|
+| Spatial | 85.0 | 82.0 |
+| Object | 87.0 | 88.0 |
+| Goal | 77.5 | 73.0 |
+| Long (10) | 53.5 | 58.0 |
+
 ---
 
 ## Layout
