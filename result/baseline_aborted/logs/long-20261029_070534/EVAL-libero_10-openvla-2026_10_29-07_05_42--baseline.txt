@@ -1,0 +1,43 @@
+Task suite: libero_10
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_05_42--episode=1--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 2...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_05_42--episode=2--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 3...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_05_42--episode=3--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 4...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_05_42--episode=4--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 5...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_05_42--episode=5--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 6...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_05_42--episode=6--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 4 (66.7%)

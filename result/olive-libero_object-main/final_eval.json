@@ -1,0 +1,68 @@
+{
+ "suite": "libero_object",
+ "total_sr": 0.88,
+ "n_episodes": 100,
+ "per_task": [
+  {
+   "task_id": 0,
+   "task": "pick up the alphabet soup and place it in the basket",
+   "sr": 0.7,
+   "n": 10
+  },
+  {
+   "task_id": 1,
+   "task": "pick up the cream cheese and place it in the basket",
+   "sr": 0.8,
+   "n": 10
+  },
+  {
+   "task_id": 2,
+   "task": "pick up the salad dressing and place it in the basket",
+   "sr": 0.9,
+   "n": 10
+  },
+  {
+   "task_id": 3,
+   "task": "pick up the bbq sauce and place it in the basket",
+   "sr": 0.8,
+   "n": 10
+  },
+  {
+   "task_id": 4,
+   "task": "pick up the ketchup and place it in the basket",
+   "sr": 0.9,
+   "n": 10
+  },
+  {
+   "task_id": 5,
+   "task": "pick up the tomato sauce and place it in the basket",
+   "sr": 0.8,
+   "n": 10
+  },
+  {
+   "task_id": 6,
+   "task": "pick up the butter and place it in the basket",
+   "sr": 0.9,
+   "n": 10
+  },
+  {
+   "task_id": 7,
+   "task": "pick up the milk and place it in the basket",
+   "sr": 1.0,
+   "n": 10
+  },
+  {
+   "task_id": 8,
+   "task": "pick up the chocolate pudding and place it in the basket",
+   "sr": 1.0,
+   "n": 10
+  },
+  {
+   "task_id": 9,
+   "task": "pick up the orange juice and place it in the basket",
+   "sr": 1.0,
+   "n": 10
+  }
+ ],
+ "ckpt": "/home/gibeom_pilab/olive/result/olive-libero_object-main/ckpt/best.pt"
+}

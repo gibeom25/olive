@@ -1,0 +1,354 @@
+[run_all] 요약 파일: /home/gibeom_pilab/olive/result/run_all_20261029_070133.md
+
+############################################################
+# SUITE libero_spatial   07:01:33   run_dir=/home/gibeom_pilab/olive/result/olive-libero_spatial-main
+############################################################
+--- [libero_spatial] 1) BC warm-up ---
+------------------------------------------------------------
+ SUITE=libero_spatial  ABLATION=main  SEED=7
+ RUN_NAME=olive-libero_spatial-main
+ RUN_DIR =/home/gibeom_pilab/olive/result/olive-libero_spatial-main
+ VLA_CKPT=/home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+ conda=openvla  python=Python 3.10.22
+------------------------------------------------------------
+[env] VLA ckpt present: /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+[01] BC warm-up -> /home/gibeom_pilab/olive/result/olive-libero_spatial-main/logs/01_bc_20261029_070133.log
+2026-10-29 07:01:34.617868: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 07:01:34.617904: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 07:01:34.618724: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+10/29 [07:01:40] WARNING  | >> No private macro file found!        __init__.py:7
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+                 WARNING  | >> It is recommended to use a private  __init__.py:8
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+                 WARNING  | >> To setup, run: python               __init__.py:9
+                          /home/gibeom_pilab/anaconda3/envs/openvl              
+                          a/lib/python3.10/site-packages/robosuite              
+                          /scripts/setup_macros.py                              
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[OLIVE] run_dir = /home/gibeom_pilab/olive/result/olive-libero_spatial-main
+[OLIVE] suite=libero_spatial  ablation-run=olive-libero_spatial-main  bc=True inject=lm_head z_dim=256
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.34it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.69it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.85it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  4.00it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.87it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-spatial  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_spatial']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[OLIVE] trainable params: {'actor': 1114880, 'critic': 1049089, 'total': 2163969} + proj 0
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][bc] demo 파일 10개, frame_stride=15
+[OLIVE][bc]   loading file 1/10  (50 demos)  [0 frames, 0s]
+[OLIVE][bc]   loading file 2/10  (50 demos)  [362 frames, 1s]
+[OLIVE][bc]   loading file 3/10  (50 demos)  [781 frames, 1s]
+[OLIVE][bc]   loading file 4/10  (50 demos)  [1304 frames, 2s]
+[OLIVE][bc]   loading file 5/10  (50 demos)  [1752 frames, 3s]
+[OLIVE][bc]   loading file 6/10  (50 demos)  [2176 frames, 4s]
+[OLIVE][bc]   loading file 7/10  (50 demos)  [2644 frames, 4s]
+[OLIVE][bc]   loading file 8/10  (50 demos)  [3003 frames, 5s]
+[OLIVE][bc]   loading file 9/10  (50 demos)  [3414 frames, 6s]
+[OLIVE][bc]   loading file 10/10  (50 demos)  [3914 frames, 6s]
+[OLIVE][bc]   frame load done: 4398 frames in 7s
+[OLIVE][bc] train 4179 frames, 66 batch/epoch x 3 epoch, targets=critic
+[OLIVE][bc]   ep1/3 20/66  a~nan c~1089.39  gn(a/c)~0.00e+00/694.2  22.8 fr/s  ETA_ep 2.1m  (10% total)
+[OLIVE][bc]   ep1/3 40/66  a~nan c~590.19  gn(a/c)~0.00e+00/495.0  14.5 fr/s  ETA_ep 1.9m  (20% total)
+[OLIVE][bc]   ep1/3 60/66  a~nan c~388.64  gn(a/c)~0.00e+00/177.6  8.7 fr/s  ETA_ep 0.7m  (30% total)
+[OLIVE][bc]   ep1/3 66/66  a~nan c~363.70  gn(a/c)~0.00e+00/251.6  8.1 fr/s  ETA_ep 0.0m  (33% total)
+[OLIVE][bc] epoch 1/3  actor_mse~nan  critic_mse~495.3026  (8.7m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc_ep1.pt
+[OLIVE][bc]   ep2/3 20/66  a~nan c~270.81  gn(a/c)~0.00e+00/171.3  4.4 fr/s  ETA_ep 11.2m  (43% total)
+[OLIVE][bc]   ep2/3 40/66  a~nan c~225.09  gn(a/c)~0.00e+00/147.1  4.4 fr/s  ETA_ep 6.3m  (54% total)
+[OLIVE][bc]   ep2/3 60/66  a~nan c~182.82  gn(a/c)~0.00e+00/105.3  4.4 fr/s  ETA_ep 1.5m  (64% total)
+[OLIVE][bc]   ep2/3 66/66  a~nan c~182.79  gn(a/c)~0.00e+00/550.6  4.4 fr/s  ETA_ep 0.0m  (67% total)
+[OLIVE][bc] epoch 2/3  actor_mse~nan  critic_mse~202.1650  (15.9m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc_ep2.pt
+[OLIVE][bc]   ep3/3 20/66  a~nan c~153.17  gn(a/c)~0.00e+00/136.9  4.4 fr/s  ETA_ep 11.2m  (77% total)
+[OLIVE][bc]   ep3/3 40/66  a~nan c~144.35  gn(a/c)~0.00e+00/202.2  4.4 fr/s  ETA_ep 6.3m  (87% total)
+[OLIVE][bc]   ep3/3 60/66  a~nan c~146.47  gn(a/c)~0.00e+00/275.5  4.4 fr/s  ETA_ep 1.5m  (97% total)
+[OLIVE][bc]   ep3/3 66/66  a~nan c~136.48  gn(a/c)~0.00e+00/146.9  4.5 fr/s  ETA_ep 0.0m  (100% total)
+[OLIVE][bc] epoch 3/3  actor_mse~nan  critic_mse~141.4163  (15.8m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc_ep3.pt
+[OLIVE][bc] done  {'n_frames': 4398, 'n_train': 4179, 'n_val': 219, 'actor_loss': None, 'critic_loss': 141.4163447602412, 'val_actor_mae': None, 'val_critic_mae': 9.866098604245817}
+[OLIVE] BC done -> /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc.pt
+[OLIVE] phase=bc: PPO 생략하고 종료.
+
+[01] done. head 가중치: /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc.pt
+     다음: ./02_ppo_train.sh  (같은 SUITE/ABLATION 이면 자동으로 이 ckpt 사용)
+--- [libero_spatial] 2) PPO (after_bc.pt 자동 init) ---
+------------------------------------------------------------
+ SUITE=libero_spatial  ABLATION=main  SEED=7
+ RUN_NAME=olive-libero_spatial-main
+ RUN_DIR =/home/gibeom_pilab/olive/result/olive-libero_spatial-main
+ VLA_CKPT=/home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+ conda=openvla  python=Python 3.10.22
+------------------------------------------------------------
+[env] VLA ckpt present: /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+[02] BC init 사용: /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc.pt
+[02] override: /home/gibeom_pilab/olive/result/.ppo_override.env
+[02] PPO -> /home/gibeom_pilab/olive/result/olive-libero_spatial-main/logs/02_ppo_20261029_074308.log   (detach 하려면 tmux 안에서 실행)
+2026-10-29 07:43:08.979008: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 07:43:08.979046: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 07:43:08.979748: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+10/29 [07:43:15] WARNING  | >> No private macro file found!        __init__.py:7
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+                 WARNING  | >> It is recommended to use a private  __init__.py:8
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+                 WARNING  | >> To setup, run: python               __init__.py:9
+                          /home/gibeom_pilab/anaconda3/envs/openvl              
+                          a/lib/python3.10/site-packages/robosuite              
+                          /scripts/setup_macros.py                              
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[OLIVE] run_dir = /home/gibeom_pilab/olive/result/olive-libero_spatial-main
+[OLIVE] suite=libero_spatial  ablation-run=olive-libero_spatial-main  bc=False inject=lm_head z_dim=256
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.46it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.64it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.60it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.74it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.68it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-spatial  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_spatial']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[OLIVE] trainable params: {'actor': 1114880, 'critic': 1049089, 'total': 2163969} + proj 0
+[OLIVE] loaded init head from /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/after_bc.pt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE] PPO: 10 iterations x 512 steps (total ~5120)
+[OLIVE] it 1/10  rollout 수집 (target 512, cursor@t0) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t0  OK   85 steps  buffer 85/512  | pick up the black bowl between the plate
+[OLIVE][rollout]   ep2 t0  OK  102 steps  buffer 187/512  | pick up the black bowl between the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t1  OK  106 steps  buffer 293/512  | pick up the black bowl next to the ramek
+[OLIVE][rollout]   ep4 t1  OK   97 steps  buffer 390/512  | pick up the black bowl next to the ramek
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep5 t2  fail 220 steps  buffer 610/512  | pick up the black bowl from table center
+[OLIVE] it 1/10  rollout 5ep/610st  3 tasks  SR(iter/ema/cum) 0.80/0.80/0.80  (4.5m) -> PPO update
+[OLIVE] it   1/10  step    610  SR 0.80 ema 0.80 cum 0.80  π +0.137  V 72.011  H -148.8  KL 0.090  gn 166.59/0.86  σR 11.8  lr 1.0e-04  (4.5m)
+[OLIVE] it 2/10  rollout 수집 (target 512, cursor@t3) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t3  OK   86 steps  buffer 86/512  | pick up the black bowl on the cookie box
+[OLIVE][rollout]   ep2 t3  OK  107 steps  buffer 193/512  | pick up the black bowl on the cookie box
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t4  OK  123 steps  buffer 316/512  | pick up the black bowl in the top drawer
+[OLIVE][rollout]   ep4 t4  OK  130 steps  buffer 446/512  | pick up the black bowl in the top drawer
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep5 t5  OK   95 steps  buffer 541/512  | pick up the black bowl on the ramekin an
+[OLIVE] it 2/10  rollout 5ep/541st  3 tasks  SR(iter/ema/cum) 1.00/0.82/0.90  (3.8m) -> PPO update
+[OLIVE] it   2/10  step   1151  SR 1.00 ema 0.82 cum 0.90  π -0.008  V 38.255  H -148.8  KL 0.051  gn 141.16/0.61  σR 11.4  lr 8.9e-05  (8.3m)
+[OLIVE] it 3/10  rollout 수집 (target 512, cursor@t6) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t6  OK  105 steps  buffer 105/512  | pick up the black bowl next to the cooki
+[OLIVE][rollout]   ep2 t6  OK  104 steps  buffer 209/512  | pick up the black bowl next to the cooki
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t7  fail 220 steps  buffer 429/512  | pick up the black bowl on the stove and 
+[OLIVE][rollout]   ep4 t7  OK  165 steps  buffer 594/512  | pick up the black bowl on the stove and 
+[OLIVE] it 3/10  rollout 4ep/594st  2 tasks  SR(iter/ema/cum) 0.75/0.81/0.86  (4.1m) -> PPO update
+[OLIVE] it   3/10  step   1745  SR 0.75 ema 0.81 cum 0.86  π -0.017  V 58.072  H -148.8  KL 0.055  gn 182.26/0.92  σR 11.6  lr 7.9e-05  (12.4m)
+[OLIVE] it 4/10  rollout 수집 (target 512, cursor@t8) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t8  OK  112 steps  buffer 112/512  | pick up the black bowl next to the plate
+[OLIVE][rollout]   ep2 t8  OK  108 steps  buffer 220/512  | pick up the black bowl next to the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t9  OK  119 steps  buffer 339/512  | pick up the black bowl on the wooden cab
+[OLIVE][rollout]   ep4 t9  fail 220 steps  buffer 559/512  | pick up the black bowl on the wooden cab
+[OLIVE] it 4/10  rollout 4ep/559st  2 tasks  SR(iter/ema/cum) 0.75/0.81/0.83  (3.9m) -> PPO update
+[OLIVE] it   4/10  step   2304  SR 0.75 ema 0.81 cum 0.83  π +0.023  V 73.529  H -148.8  KL 0.051  gn 156.08/0.78  σR 11.4  lr 6.9e-05  (16.3m)
+[OLIVE] it 5/10  rollout 수집 (target 512, cursor@t0) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t0  OK   96 steps  buffer 96/512  | pick up the black bowl between the plate
+[OLIVE][rollout]   ep2 t0  OK   96 steps  buffer 192/512  | pick up the black bowl between the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t1  fail 220 steps  buffer 412/512  | pick up the black bowl next to the ramek
+[OLIVE][rollout]   ep4 t1  fail 220 steps  buffer 632/512  | pick up the black bowl next to the ramek
+[OLIVE] it 5/10  rollout 4ep/632st  2 tasks  SR(iter/ema/cum) 0.50/0.78/0.77  (4.4m) -> PPO update
+[OLIVE] it   5/10  step   2936  SR 0.50 ema 0.78 cum 0.77  π -0.014  V 80.657  H -148.8  KL 0.027  gn 160.33/1.69  σR 11.4  lr 5.9e-05  (20.7m)
+[OLIVE] it 6/10  rollout 수집 (target 512, cursor@t2) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t2  OK   97 steps  buffer 97/512  | pick up the black bowl from table center
+[OLIVE][rollout]   ep2 t2  OK   92 steps  buffer 189/512  | pick up the black bowl from table center
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t3  OK   78 steps  buffer 267/512  | pick up the black bowl on the cookie box
+[OLIVE][rollout]   ep4 t3  OK   91 steps  buffer 358/512  | pick up the black bowl on the cookie box
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep5 t4  OK  123 steps  buffer 481/512  | pick up the black bowl in the top drawer
+[OLIVE][rollout]   ep6 t4  fail 220 steps  buffer 701/512  | pick up the black bowl in the top drawer
+[OLIVE] it 6/10  rollout 6ep/701st  3 tasks  SR(iter/ema/cum) 0.83/0.78/0.79  (4.7m) -> PPO update
+[OLIVE] it   6/10  step   3637  SR 0.83 ema 0.78 cum 0.79  π +0.005  V 57.281  H -148.8  KL 0.047  gn 140.43/0.80  σR 12.2  lr 4.7e-05  (25.4m)
+[OLIVE] it 7/10  rollout 수집 (target 512, cursor@t5) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t5  OK   86 steps  buffer 86/512  | pick up the black bowl on the ramekin an
+[OLIVE][rollout]   ep2 t5  OK   89 steps  buffer 175/512  | pick up the black bowl on the ramekin an
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t6  OK  101 steps  buffer 276/512  | pick up the black bowl next to the cooki
+[OLIVE][rollout]   ep4 t6  OK   98 steps  buffer 374/512  | pick up the black bowl next to the cooki
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep5 t7  fail 220 steps  buffer 594/512  | pick up the black bowl on the stove and 
+[OLIVE] it 7/10  rollout 5ep/594st  3 tasks  SR(iter/ema/cum) 0.80/0.78/0.79  (4.1m) -> PPO update
+[OLIVE] it   7/10  step   4231  SR 0.80 ema 0.78 cum 0.79  π +0.019  V 65.731  H -148.7  KL 0.038  gn 145.55/0.65  σR 12.1  lr 3.5e-05  (29.5m)
+[OLIVE] it 8/10  rollout 수집 (target 512, cursor@t8) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t8  fail 220 steps  buffer 220/512  | pick up the black bowl next to the plate
+[OLIVE][rollout]   ep2 t8  OK   98 steps  buffer 318/512  | pick up the black bowl next to the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t9  OK  116 steps  buffer 434/512  | pick up the black bowl on the wooden cab
+[OLIVE][rollout]   ep4 t9  fail 220 steps  buffer 654/512  | pick up the black bowl on the wooden cab
+[OLIVE] it 8/10  rollout 4ep/654st  2 tasks  SR(iter/ema/cum) 0.50/0.76/0.76  (4.4m) -> PPO update
+[OLIVE] it   8/10  step   4885  SR 0.50 ema 0.76 cum 0.76  π +0.016  V 96.621  H -148.7  KL 0.014  gn 156.23/1.44  σR 12.1  lr 2.4e-05  (33.9m)
+[OLIVE] it 9/10  rollout 수집 (target 512, cursor@t0) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t0  OK   76 steps  buffer 76/512  | pick up the black bowl between the plate
+[OLIVE][rollout]   ep2 t0  OK   86 steps  buffer 162/512  | pick up the black bowl between the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t1  OK  121 steps  buffer 283/512  | pick up the black bowl next to the ramek
+[OLIVE][rollout]   ep4 t1  OK  103 steps  buffer 386/512  | pick up the black bowl next to the ramek
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep5 t2  OK   92 steps  buffer 478/512  | pick up the black bowl from table center
+[OLIVE][rollout]   ep6 t2  OK  111 steps  buffer 589/512  | pick up the black bowl from table center
+[OLIVE] it 9/10  rollout 6ep/589st  3 tasks  SR(iter/ema/cum) 1.00/0.78/0.79  (4.0m) -> PPO update
+[OLIVE] it   9/10  step   5474  SR 1.00 ema 0.78 cum 0.79  π +0.016  V 43.142  H -148.7  KL 0.018  gn 183.73/1.11  σR 12.1  lr 1.2e-05  (38.0m)
+[OLIVE] it 10/10  rollout 수집 (target 512, cursor@t3) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t3  OK   87 steps  buffer 87/512  | pick up the black bowl on the cookie box
+[OLIVE][rollout]   ep2 t3  OK   84 steps  buffer 171/512  | pick up the black bowl on the cookie box
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t4  OK  174 steps  buffer 345/512  | pick up the black bowl in the top drawer
+[OLIVE][rollout]   ep4 t4  fail 220 steps  buffer 565/512  | pick up the black bowl in the top drawer
+[OLIVE] it 10/10  rollout 4ep/565st  2 tasks  SR(iter/ema/cum) 0.75/0.78/0.79  (3.5m) -> PPO update
+[OLIVE] it  10/10  step   6039  SR 0.75 ema 0.78 cum 0.79  π -0.077  V 63.155  H -148.7  KL -0.015  gn 99.61/1.26  σR 12.6  lr 1.0e-05  (41.5m)
+[OLIVE] it 10/10  eval 1 ep/task ...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  0  SR 100.0%  pick up the black bowl between the plate and the ramekin and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  1  SR 100.0%  pick up the black bowl next to the ramekin and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  2  SR  0.0%  pick up the black bowl from table center and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  3  SR 100.0%  pick up the black bowl on the cookie box and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  4  SR 100.0%  pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  5  SR 100.0%  pick up the black bowl on the ramekin and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  6  SR 100.0%  pick up the black bowl next to the cookie box and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  7  SR 100.0%  pick up the black bowl on the stove and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  8  SR 100.0%  pick up the black bowl next to the plate and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  9  SR 100.0%  pick up the black bowl on the wooden cabinet and place it on the plate
+  [libero_spatial] TOTAL SR 90.0%  (10 episodes)
+[OLIVE]   eval SR 90.0%
+[OLIVE] done. best eval SR = 90.0%  (49.8m)
+
+[02] done. best head: /home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/best.pt
+     다음: ./03_eval.sh
+--- [libero_spatial] 3) final eval (EVAL_EPISODES=10) ---
+------------------------------------------------------------
+ SUITE=libero_spatial  ABLATION=main  SEED=7
+ RUN_NAME=olive-libero_spatial-main
+ RUN_DIR =/home/gibeom_pilab/olive/result/olive-libero_spatial-main
+ VLA_CKPT=/home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+ conda=openvla  python=Python 3.10.22
+------------------------------------------------------------
+[env] VLA ckpt present: /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+[03] head=/home/gibeom_pilab/olive/result/olive-libero_spatial-main/ckpt/best.pt  z_dim=256  inject_basis=lm_head
+2026-10-29 08:33:14.880453: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 08:33:14.880494: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 08:33:14.881391: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/wandb/analytics/sentry.py:90: SentryHubDeprecationWarning: `sentry_sdk.Hub` is deprecated and will be removed in a future major release. Please consult our 1.x to 2.x migration guide for details on how to migrate `Hub` usage to the new API: https://docs.sentry.io/platforms/python/migration/1.x-to-2.x
+  self.hub = sentry_sdk.Hub(client)
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.61it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.76it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.85it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.91it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.86it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-spatial  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_spatial']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  0  SR 90.0%  pick up the black bowl between the plate and the ramekin and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  1  SR 100.0%  pick up the black bowl next to the ramekin and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  2  SR 70.0%  pick up the black bowl from table center and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  3  SR 90.0%  pick up the black bowl on the cookie box and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  4  SR 80.0%  pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  5  SR 80.0%  pick up the black bowl on the ramekin and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  6  SR 100.0%  pick up the black bowl next to the cookie box and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  7  SR 60.0%  pick up the black bowl on the stove and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  8  SR 80.0%  pick up the black bowl next to the plate and place it on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_spatial] task  9  SR 70.0%  pick up the black bowl on the wooden cabinet and place it on the plate
+  [libero_spatial] TOTAL SR 82.0%  (100 episodes)
+
+libero_spatial: 82.0%
+
+[03] 결과 로그: /home/gibeom_pilab/olive/result/olive-libero_spatial-main/logs/03_eval_20261029_083314.log
+     VLA 체크포인트 정리하려면:  /home/gibeom_pilab/olive/models/olive-model.sh release spatial
+[run_all] libero_spatial 완료 (OK)  178분
+
+============================================================
+ 전체 완료  178분  (10:00:14)
+ 요약: /home/gibeom_pilab/olive/result/run_all_20261029_070133.md
+============================================================
+# OLIVE 전체 suite 실행  (2026-10-29 07:01)
+
+- SUITES: `libero_spatial`
+- ABLATION=main  SEED=7
+- PPO_TOTAL_STEPS=5000  EVAL_EVERY=10  EVAL_EPISODES=5(iter)/10(final)
+- BC_FRAME_STRIDE=15  BC_EPOCHS=3
+- PPO config 기본값: entropy_per_dim=True, target_kl=0.05, lr_start=1e-4 (z-space 보정)
+
+| suite | BC (a/c mse) | PPO best SR | final eval SR | 소요 | 상태 |
+|---|---|---|---|---|---|
+| libero_spatial | 'critic_loss': 141.4163447602412 | 90.0% | 82.0% | 178m | OK |

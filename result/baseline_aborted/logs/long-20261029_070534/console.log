@@ -1,0 +1,29 @@
+2026-10-29 07:05:35.806308: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 07:05:35.806348: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 07:05:35.807074: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+[*] Instantiating Pretrained VLA model
+[*] Loading in BF16 with Flash-Attention Enabled
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.54it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.46it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.65it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.83it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.72it/s]
+Loaded model: <class 'transformers_modules.openvla.openvla-7b.47a0ec7fc4ec123775a391911046cf33cf9ed83f.modeling_prismatic.OpenVLAForActionPrediction'>
+Logging to local log file: /home/gibeom_pilab/olive/result/baseline/logs/long-20261029_070534/EVAL-libero_10-openvla-2026_10_29-07_05_42--baseline.txt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Task suite: libero_10
+  0%|          | 0/10 [00:00<?, ?it/s]/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/10 [00:00<?, ?it/s][A
+ 10%|█         | 1/10 [03:05<27:46, 185.16s/it][A
+ 20%|██        | 2/10 [06:08<24:32, 184.02s/it][A
+ 30%|███       | 3/10 [12:07<30:49, 264.16s/it][A
+ 40%|████      | 4/10 [15:59<25:07, 251.21s/it][A
+ 50%|█████     | 5/10 [20:19<21:11, 254.31s/it][A
+ 60%|██████    | 6/10 [26:18<19:20, 290.22s/it][A

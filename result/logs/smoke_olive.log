@@ -1,0 +1,130 @@
+2026-10-29 06:53:56.584866: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 06:53:56.584931: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 06:53:56.585647: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+10/29 [06:54:02] WARNING  | >> No private macro file found!        __init__.py:7
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+                 WARNING  | >> It is recommended to use a private  __init__.py:8
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+                 WARNING  | >> To setup, run: python               __init__.py:9
+                          /home/gibeom_pilab/anaconda3/envs/openvl              
+                          a/lib/python3.10/site-packages/robosuite              
+                          /scripts/setup_macros.py                              
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[OLIVE] run_dir = /home/gibeom_pilab/olive/result/smoke-olive
+[OLIVE] suite=libero_goal  ablation-run=smoke-olive  bc=True inject=lm_head z_dim=256
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.26it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.50it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.55it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.71it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.62it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-goal  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_goal']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[OLIVE] trainable params: {'actor': 1114880, 'critic': 1049089, 'total': 2163969} + proj 0
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][bc] demo 파일 1개, frame_stride=10
+[OLIVE][bc]   loading file 1/1  (50 demos)  [0 frames, 0s]
+[OLIVE][bc]   frame load done: 722 frames in 2s
+[OLIVE][bc] train 686 frames, 11 batch/epoch x 1 epoch, targets=both
+[OLIVE][bc]   ep1/1 11/11  a~0.6402 c~1718.47  gn(a/c)~9.39e+00/979.3  2.2 fr/s  ETA_ep 0.0m  (100% total)
+[OLIVE][bc] epoch 1/1  actor_mse~0.6402  critic_mse~1718.4661  (5.2m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/smoke-olive/ckpt/after_bc_ep1.pt
+[OLIVE][bc] done  {'n_frames': 722, 'n_train': 686, 'n_val': 36, 'actor_loss': 0.6402011493758368, 'critic_loss': 1718.4660533376127, 'val_actor_mae': 0.43016738775703645, 'val_critic_mae': 37.62958468331231}
+[OLIVE] BC done -> /home/gibeom_pilab/olive/result/smoke-olive/ckpt/after_bc.pt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE] PPO: 2 iterations x 24 steps (total ~48)
+[OLIVE] it 1/2  rollout 수집 (target 24, cursor@t0) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t0  fail  25 steps  buffer 25/24  | open the middle drawer of the cabinet
+[OLIVE] it 1/2  rollout 1ep/25st  1 tasks  SR(iter/ema/cum) 0.00/0.00/0.00  (0.2m) -> PPO update
+[OLIVE] it   1/2  step     25  SR 0.00 ema 0.00 cum 0.00  π -0.076  V 3.501  H -148.8  KL 0.235  gn 142.77/27.36  σR 1.0  lr 1.0e-04  (0.2m)
+[OLIVE] it 1/2  eval 1 ep/task ...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  0  SR  0.0%  open the middle drawer of the cabinet
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  1  SR  0.0%  put the bowl on the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  2  SR  0.0%  put the wine bottle on top of the cabinet
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  3  SR  0.0%  open the top drawer and put the bowl inside
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  4  SR  0.0%  put the bowl on top of the cabinet
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  5  SR  0.0%  push the plate to the front of the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  6  SR  0.0%  put the cream cheese in the bowl
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  7  SR  0.0%  turn on the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  8  SR  0.0%  put the bowl on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  9  SR  0.0%  put the wine bottle on the rack
+  [libero_goal] TOTAL SR 0.0%  (10 episodes)
+[OLIVE]   eval SR 0.0%
+[OLIVE] it 2/2  rollout 수집 (target 24, cursor@t1) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t1  fail  25 steps  buffer 25/24  | put the bowl on the stove
+[OLIVE] it 2/2  rollout 1ep/25st  1 tasks  SR(iter/ema/cum) 0.00/0.00/0.00  (0.1m) -> PPO update
+[OLIVE] it   2/2  step     50  SR 0.00 ema 0.00 cum 0.00  π -0.129  V 5.503  H -148.8  KL -0.169  gn 83.09/30.31  σR 1.0  lr 5.3e-05  (1.0m)
+[OLIVE] it 2/2  eval 1 ep/task ...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  0  SR  0.0%  open the middle drawer of the cabinet
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  1  SR  0.0%  put the bowl on the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  2  SR  0.0%  put the wine bottle on top of the cabinet
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  3  SR  0.0%  open the top drawer and put the bowl inside
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  4  SR  0.0%  put the bowl on top of the cabinet
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  5  SR  0.0%  push the plate to the front of the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  6  SR  0.0%  put the cream cheese in the bowl
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  7  SR  0.0%  turn on the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  8  SR  0.0%  put the bowl on the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_goal] task  9  SR  0.0%  put the wine bottle on the rack
+  [libero_goal] TOTAL SR 0.0%  (10 episodes)
+[OLIVE]   eval SR 0.0%
+[OLIVE] done. best eval SR = 0.0%  (1.8m)

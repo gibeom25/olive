@@ -1,0 +1,160 @@
+2026-10-29 08:23:13.121579: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 08:23:13.121620: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 08:23:13.122336: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+[*] Instantiating Pretrained VLA model
+[*] Loading in BF16 with Flash-Attention Enabled
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.54it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.69it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.76it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.77it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.74it/s]
+Loaded model: <class 'transformers_modules.openvla.openvla-7b.47a0ec7fc4ec123775a391911046cf33cf9ed83f.modeling_prismatic.OpenVLAForActionPrediction'>
+Logging to local log file: /home/gibeom_pilab/olive/result/baseline/logs/object-20261029_082312/EVAL-libero_object-openvla-2026_10_29-08_23_19--baseline.txt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Task suite: libero_object
+  0%|          | 0/10 [00:00<?, ?it/s]/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:53<00:00, 53.91s/it][A100%|██████████| 1/1 [00:53<00:00, 53.91s/it]
+ 10%|█         | 1/10 [00:55<08:17, 55.28s/it]
+Task: pick up the alphabet soup and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=1--success=True--task=pick_up_the_alphabet_soup_and_place_it_in_the_bask.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:01<00:00, 61.42s/it][A100%|██████████| 1/1 [01:01<00:00, 61.42s/it]
+ 20%|██        | 2/10 [01:57<07:54, 59.36s/it]
+Task: pick up the cream cheese and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=2--success=True--task=pick_up_the_cream_cheese_and_place_it_in_the_baske.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:47<00:00, 47.81s/it][A100%|██████████| 1/1 [00:47<00:00, 47.81s/it]
+ 30%|███       | 3/10 [02:46<06:21, 54.44s/it]
+Task: pick up the salad dressing and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=3--success=True--task=pick_up_the_salad_dressing_and_place_it_in_the_bas.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:51<00:00, 51.08s/it][A100%|██████████| 1/1 [00:51<00:00, 51.08s/it]
+ 40%|████      | 4/10 [03:37<05:20, 53.43s/it]
+Task: pick up the bbq sauce and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=4--success=True--task=pick_up_the_bbq_sauce_and_place_it_in_the_basket.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:06<00:00, 66.41s/it][A100%|██████████| 1/1 [01:06<00:00, 66.41s/it]
+ 50%|█████     | 5/10 [04:45<04:51, 58.38s/it]
+Task: pick up the ketchup and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=5--success=True--task=pick_up_the_ketchup_and_place_it_in_the_basket.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:25<00:00, 86.00s/it][A100%|██████████| 1/1 [01:25<00:00, 86.00s/it]
+ 60%|██████    | 6/10 [06:11<04:32, 68.02s/it]
+Task: pick up the tomato sauce and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=6--success=True--task=pick_up_the_tomato_sauce_and_place_it_in_the_baske.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 6 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:52<00:00, 112.91s/it][A100%|██████████| 1/1 [01:52<00:00, 112.91s/it]
+ 70%|███████   | 7/10 [08:05<04:08, 82.94s/it]
+Task: pick up the butter and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=7--success=False--task=pick_up_the_butter_and_place_it_in_the_basket.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 6 (85.7%)
+Current task success rate: 0.0
+Current total success rate: 0.8571428571428571
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:56<00:00, 56.51s/it][A100%|██████████| 1/1 [00:56<00:00, 56.51s/it]
+ 80%|████████  | 8/10 [09:02<02:29, 74.77s/it]
+Task: pick up the milk and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=8--success=True--task=pick_up_the_milk_and_place_it_in_the_basket.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 7 (87.5%)
+Current task success rate: 1.0
+Current total success rate: 0.875
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:56<00:00, 56.03s/it][A100%|██████████| 1/1 [00:56<00:00, 56.03s/it]
+ 90%|█████████ | 9/10 [09:59<01:09, 69.16s/it]
+Task: pick up the chocolate pudding and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=9--success=True--task=pick_up_the_chocolate_pudding_and_place_it_in_the_.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+Current task success rate: 1.0
+Current total success rate: 0.8888888888888888
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:49<00:00, 49.79s/it][A100%|██████████| 1/1 [00:49<00:00, 49.79s/it]
+100%|██████████| 10/10 [10:50<00:00, 63.42s/it]100%|██████████| 10/10 [10:50<00:00, 65.02s/it]
+
+Task: pick up the orange juice and place it in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_23_19--episode=10--success=True--task=pick_up_the_orange_juice_and_place_it_in_the_baske.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+Current task success rate: 1.0
+Current total success rate: 0.9

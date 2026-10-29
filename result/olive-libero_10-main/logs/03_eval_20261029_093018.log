@@ -1,0 +1,51 @@
+2026-10-29 09:30:19.596131: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 09:30:19.596170: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 09:30:19.596906: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/wandb/analytics/sentry.py:90: SentryHubDeprecationWarning: `sentry_sdk.Hub` is deprecated and will be removed in a future major release. Please consult our 1.x to 2.x migration guide for details on how to migrate `Hub` usage to the new API: https://docs.sentry.io/platforms/python/migration/1.x-to-2.x
+  self.hub = sentry_sdk.Hub(client)
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.60it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.78it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.81it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.86it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.82it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-10  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_10']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  0  SR 100.0%  put both the alphabet soup and the tomato sauce in the basket
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  1  SR 90.0%  put both the cream cheese box and the butter in the basket
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  2  SR 40.0%  turn on the stove and put the moka pot on it
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  3  SR 60.0%  put the black bowl in the bottom drawer of the cabinet and close it
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  4  SR 30.0%  put the white mug on the left plate and put the yellow and white mug on the right plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  5  SR 80.0%  pick up the book and place it in the back compartment of the caddy
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  6  SR 60.0%  put the white mug on the plate and put the chocolate pudding to the right of the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  7  SR 50.0%  put both the alphabet soup and the cream cheese box in the basket
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  8  SR 20.0%  put both moka pots on the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  9  SR 50.0%  put the yellow and white mug in the microwave and close it
+  [libero_10] TOTAL SR 58.0%  (100 episodes)
+
+libero_10: 58.0%

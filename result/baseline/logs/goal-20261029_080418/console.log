@@ -1,0 +1,160 @@
+2026-10-29 08:04:19.503916: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 08:04:19.503956: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 08:04:19.504667: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+[*] Instantiating Pretrained VLA model
+[*] Loading in BF16 with Flash-Attention Enabled
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.63it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.81it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.88it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.95it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.89it/s]
+Loaded model: <class 'transformers_modules.openvla.openvla-7b.47a0ec7fc4ec123775a391911046cf33cf9ed83f.modeling_prismatic.OpenVLAForActionPrediction'>
+Logging to local log file: /home/gibeom_pilab/olive/result/baseline/logs/goal-20261029_080418/EVAL-libero_goal-openvla-2026_10_29-08_04_26--baseline.txt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Task suite: libero_goal
+  0%|          | 0/10 [00:00<?, ?it/s]/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:48<00:00, 48.14s/it][A100%|██████████| 1/1 [00:48<00:00, 48.14s/it]
+ 10%|█         | 1/10 [00:49<07:25, 49.53s/it]
+Task: open the middle drawer of the cabinet
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=1--success=True--task=open_the_middle_drawer_of_the_cabinet.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:34<00:00, 34.79s/it][A100%|██████████| 1/1 [00:34<00:00, 34.79s/it]
+ 20%|██        | 2/10 [01:25<05:30, 41.29s/it]
+Task: put the bowl on the stove
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=2--success=True--task=put_the_bowl_on_the_stove.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:38<00:00, 38.95s/it][A100%|██████████| 1/1 [00:38<00:00, 38.95s/it]
+ 30%|███       | 3/10 [02:04<04:43, 40.55s/it]
+Task: put the wine bottle on top of the cabinet
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=3--success=True--task=put_the_wine_bottle_on_top_of_the_cabinet.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:10<00:00, 70.84s/it][A100%|██████████| 1/1 [01:10<00:00, 70.84s/it]
+ 40%|████      | 4/10 [03:16<05:16, 52.80s/it]
+Task: open the top drawer and put the bowl inside
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=4--success=True--task=open_the_top_drawer_and_put_the_bowl_inside.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:42<00:00, 42.88s/it][A100%|██████████| 1/1 [00:42<00:00, 42.88s/it]
+ 50%|█████     | 5/10 [03:59<04:07, 49.49s/it]
+Task: put the bowl on top of the cabinet
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=5--success=True--task=put_the_bowl_on_top_of_the_cabinet.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [02:02<00:00, 122.44s/it][A100%|██████████| 1/1 [02:02<00:00, 122.44s/it]
+ 60%|██████    | 6/10 [06:03<04:58, 74.54s/it]
+Task: push the plate to the front of the stove
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=6--success=False--task=push_the_plate_to_the_front_of_the_stove.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+Current task success rate: 0.0
+Current total success rate: 0.8333333333333334
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:43<00:00, 43.56s/it][A100%|██████████| 1/1 [00:43<00:00, 43.56s/it]
+ 70%|███████   | 7/10 [06:47<03:13, 64.66s/it]
+Task: put the cream cheese in the bowl
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=7--success=True--task=put_the_cream_cheese_in_the_bowl.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 6 (85.7%)
+Current task success rate: 1.0
+Current total success rate: 0.8571428571428571
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:40<00:00, 40.59s/it][A100%|██████████| 1/1 [00:40<00:00, 40.59s/it]
+ 80%|████████  | 8/10 [07:28<01:54, 57.23s/it]
+Task: turn on the stove
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=8--success=True--task=turn_on_the_stove.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 7 (87.5%)
+Current task success rate: 1.0
+Current total success rate: 0.875
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:34<00:00, 34.11s/it][A100%|██████████| 1/1 [00:34<00:00, 34.11s/it]
+ 90%|█████████ | 9/10 [08:03<00:50, 50.24s/it]
+Task: put the bowl on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=9--success=True--task=put_the_bowl_on_the_plate.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+Current task success rate: 1.0
+Current total success rate: 0.8888888888888888
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [02:03<00:00, 123.75s/it][A100%|██████████| 1/1 [02:03<00:00, 123.75s/it]
+100%|██████████| 10/10 [10:08<00:00, 73.16s/it]100%|██████████| 10/10 [10:08<00:00, 60.81s/it]
+
+Task: put the wine bottle on the rack
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_04_26--episode=10--success=False--task=put_the_wine_bottle_on_the_rack.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 8 (80.0%)
+Current task success rate: 0.0
+Current total success rate: 0.8

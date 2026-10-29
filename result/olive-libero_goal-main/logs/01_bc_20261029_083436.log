@@ -1,0 +1,62 @@
+2026-10-29 08:34:37.107470: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 08:34:37.107504: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 08:34:37.108224: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+10/29 [08:34:43] WARNING  | >> No private macro file found!        __init__.py:7
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+                 WARNING  | >> It is recommended to use a private  __init__.py:8
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+                 WARNING  | >> To setup, run: python               __init__.py:9
+                          /home/gibeom_pilab/anaconda3/envs/openvl              
+                          a/lib/python3.10/site-packages/robosuite              
+                          /scripts/setup_macros.py                              
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[OLIVE] run_dir = /home/gibeom_pilab/olive/result/olive-libero_goal-main
+[OLIVE] suite=libero_goal  ablation-run=olive-libero_goal-main  bc=True inject=lm_head z_dim=256
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.48it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.65it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.74it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.83it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.76it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-goal  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_goal']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[OLIVE] trainable params: {'actor': 1114880, 'critic': 1049089, 'total': 2163969} + proj 0
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][bc] demo 파일 10개, frame_stride=15
+[OLIVE][bc]   loading file 1/10  (50 demos)  [0 frames, 0s]
+[OLIVE][bc]   loading file 2/10  (50 demos)  [497 frames, 1s]
+[OLIVE][bc]   loading file 3/10  (50 demos)  [1201 frames, 3s]
+[OLIVE][bc]   loading file 4/10  (50 demos)  [1734 frames, 4s]
+[OLIVE][bc]   loading file 5/10  (50 demos)  [2067 frames, 5s]
+[OLIVE][bc]   loading file 6/10  (50 demos)  [2430 frames, 6s]
+[OLIVE][bc]   loading file 7/10  (50 demos)  [2790 frames, 7s]
+[OLIVE][bc]   loading file 8/10  (50 demos)  [3172 frames, 8s]
+[OLIVE][bc]   loading file 9/10  (50 demos)  [3785 frames, 10s]
+[OLIVE][bc]   loading file 10/10  (50 demos)  [4167 frames, 11s]
+[OLIVE][bc]   frame load done: 4488 frames in 12s
+[OLIVE][bc] train 4264 frames, 67 batch/epoch x 3 epoch, targets=critic
+[OLIVE][bc]   ep1/3 20/67  a~nan c~1974.67  gn(a/c)~0.00e+00/1218.2  7.3 fr/s  ETA_ep 6.8m  (10% total)
+[OLIVE][bc]   ep1/3 40/67  a~nan c~1301.06  gn(a/c)~0.00e+00/549.7  7.4 fr/s  ETA_ep 3.9m  (20% total)
+[OLIVE][bc]   ep1/3 60/67  a~nan c~1037.64  gn(a/c)~0.00e+00/857.4  7.4 fr/s  ETA_ep 1.0m  (30% total)
+[OLIVE][bc]   ep1/3 67/67  a~nan c~983.76  gn(a/c)~0.00e+00/417.1  7.4 fr/s  ETA_ep 0.0m  (33% total)
+[OLIVE][bc] epoch 1/3  actor_mse~nan  critic_mse~1182.0700  (9.6m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/olive-libero_goal-main/ckpt/after_bc_ep1.pt
+[OLIVE][bc]   ep2/3 20/67  a~nan c~839.53  gn(a/c)~0.00e+00/831.3  7.4 fr/s  ETA_ep 6.8m  (43% total)
+[OLIVE][bc]   ep2/3 40/67  a~nan c~730.65  gn(a/c)~0.00e+00/483.4  7.4 fr/s  ETA_ep 3.9m  (53% total)
+[OLIVE][bc]   ep2/3 60/67  a~nan c~664.19  gn(a/c)~0.00e+00/606.2  7.3 fr/s  ETA_ep 1.0m  (63% total)
+[OLIVE][bc]   ep2/3 67/67  a~nan c~673.38  gn(a/c)~0.00e+00/1406.4  7.4 fr/s  ETA_ep 0.0m  (67% total)
+[OLIVE][bc] epoch 2/3  actor_mse~nan  critic_mse~709.7069  (9.7m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/olive-libero_goal-main/ckpt/after_bc_ep2.pt
+[OLIVE][bc]   ep3/3 20/67  a~nan c~571.98  gn(a/c)~0.00e+00/430.3  7.3 fr/s  ETA_ep 6.9m  (77% total)
+[OLIVE][bc]   ep3/3 40/67  a~nan c~515.03  gn(a/c)~0.00e+00/387.0  7.3 fr/s  ETA_ep 4.0m  (87% total)
+[OLIVE][bc]   ep3/3 60/67  a~nan c~562.34  gn(a/c)~0.00e+00/162.1  7.3 fr/s  ETA_ep 1.0m  (97% total)
+[OLIVE][bc]   ep3/3 67/67  a~nan c~517.43  gn(a/c)~0.00e+00/446.0  7.3 fr/s  ETA_ep 0.0m  (100% total)
+[OLIVE][bc] epoch 3/3  actor_mse~nan  critic_mse~518.0317  (9.7m)
+[OLIVE][bc]   saved /home/gibeom_pilab/olive/result/olive-libero_goal-main/ckpt/after_bc_ep3.pt
+[OLIVE][bc] done  {'n_frames': 4488, 'n_train': 4264, 'n_val': 224, 'actor_loss': None, 'critic_loss': 518.0316652742322, 'val_actor_mae': None, 'val_critic_mae': 15.506759662713323}
+[OLIVE] BC done -> /home/gibeom_pilab/olive/result/olive-libero_goal-main/ckpt/after_bc.pt
+[OLIVE] phase=bc: PPO 생략하고 종료.

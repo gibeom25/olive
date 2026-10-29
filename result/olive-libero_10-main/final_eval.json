@@ -1,0 +1,68 @@
+{
+ "suite": "libero_10",
+ "total_sr": 0.58,
+ "n_episodes": 100,
+ "per_task": [
+  {
+   "task_id": 0,
+   "task": "put both the alphabet soup and the tomato sauce in the basket",
+   "sr": 1.0,
+   "n": 10
+  },
+  {
+   "task_id": 1,
+   "task": "put both the cream cheese box and the butter in the basket",
+   "sr": 0.9,
+   "n": 10
+  },
+  {
+   "task_id": 2,
+   "task": "turn on the stove and put the moka pot on it",
+   "sr": 0.4,
+   "n": 10
+  },
+  {
+   "task_id": 3,
+   "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "sr": 0.6,
+   "n": 10
+  },
+  {
+   "task_id": 4,
+   "task": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "sr": 0.3,
+   "n": 10
+  },
+  {
+   "task_id": 5,
+   "task": "pick up the book and place it in the back compartment of the caddy",
+   "sr": 0.8,
+   "n": 10
+  },
+  {
+   "task_id": 6,
+   "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "sr": 0.6,
+   "n": 10
+  },
+  {
+   "task_id": 7,
+   "task": "put both the alphabet soup and the cream cheese box in the basket",
+   "sr": 0.5,
+   "n": 10
+  },
+  {
+   "task_id": 8,
+   "task": "put both moka pots on the stove",
+   "sr": 0.2,
+   "n": 10
+  },
+  {
+   "task_id": 9,
+   "task": "put the yellow and white mug in the microwave and close it",
+   "sr": 0.5,
+   "n": 10
+  }
+ ],
+ "ckpt": "/home/gibeom_pilab/olive/result/olive-libero_10-main/ckpt/best.pt"
+}

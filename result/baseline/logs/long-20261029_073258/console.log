@@ -1,0 +1,160 @@
+2026-10-29 07:32:59.732781: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 07:32:59.732821: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 07:32:59.733534: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+[*] Instantiating Pretrained VLA model
+[*] Loading in BF16 with Flash-Attention Enabled
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.56it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.69it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.80it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.86it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.80it/s]
+Loaded model: <class 'transformers_modules.openvla.openvla-7b.47a0ec7fc4ec123775a391911046cf33cf9ed83f.modeling_prismatic.OpenVLAForActionPrediction'>
+Logging to local log file: /home/gibeom_pilab/olive/result/baseline/logs/long-20261029_073258/EVAL-libero_10-openvla-2026_10_29-07_33_06--baseline.txt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Task suite: libero_10
+  0%|          | 0/10 [00:00<?, ?it/s]/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [03:03<00:00, 183.90s/it][A100%|██████████| 1/1 [03:03<00:00, 183.90s/it]
+ 10%|█         | 1/10 [03:05<27:50, 185.57s/it]
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=1--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [02:58<00:00, 178.45s/it][A100%|██████████| 1/1 [02:58<00:00, 178.45s/it]
+ 20%|██        | 2/10 [06:04<24:15, 181.89s/it]
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=2--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_th.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [05:28<00:00, 328.41s/it][A100%|██████████| 1/1 [05:28<00:00, 328.41s/it]
+ 30%|███       | 3/10 [11:34<29:03, 249.12s/it]
+Task: turn on the stove and put the moka pot on it
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=3--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+Current task success rate: 0.0
+Current total success rate: 0.6666666666666666
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [02:14<00:00, 134.89s/it][A100%|██████████| 1/1 [02:14<00:00, 134.89s/it]
+ 40%|████      | 4/10 [13:49<20:26, 204.37s/it]
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=4--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cab.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+Current task success rate: 1.0
+Current total success rate: 0.75
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [03:30<00:00, 210.46s/it][A100%|██████████| 1/1 [03:30<00:00, 210.46s/it]
+ 50%|█████     | 5/10 [17:21<17:15, 207.17s/it]
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=5--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+Current task success rate: 0.0
+Current total success rate: 0.6
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:19<00:00, 79.53s/it][A100%|██████████| 1/1 [01:19<00:00, 79.53s/it]
+ 60%|██████    | 6/10 [18:42<10:56, 164.10s/it]
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=6--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartm.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 4 (66.7%)
+Current task success rate: 1.0
+Current total success rate: 0.6666666666666666
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [03:30<00:00, 210.18s/it][A100%|██████████| 1/1 [03:30<00:00, 210.18s/it]
+ 70%|███████   | 7/10 [22:13<08:58, 179.44s/it]
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=7--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocola.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 4 (57.1%)
+Current task success rate: 0.0
+Current total success rate: 0.5714285714285714
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [03:32<00:00, 212.20s/it][A100%|██████████| 1/1 [03:32<00:00, 212.20s/it]
+ 80%|████████  | 8/10 [25:46<06:20, 190.11s/it]
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=8--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_bo.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 4 (50.0%)
+Current task success rate: 0.0
+Current total success rate: 0.5
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [03:32<00:00, 212.97s/it][A100%|██████████| 1/1 [03:32<00:00, 212.97s/it]
+ 90%|█████████ | 9/10 [29:19<03:17, 197.45s/it]
+Task: put both moka pots on the stove
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=9--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 4 (44.4%)
+Current task success rate: 0.0
+Current total success rate: 0.4444444444444444
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:41<00:00, 101.33s/it][A100%|██████████| 1/1 [01:41<00:00, 101.33s/it]
+100%|██████████| 10/10 [31:01<00:00, 167.99s/it]100%|██████████| 10/10 [31:01<00:00, 186.20s/it]
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-07_33_06--episode=10--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 5 (50.0%)
+Current task success rate: 1.0
+Current total success rate: 0.5

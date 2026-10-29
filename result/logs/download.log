@@ -1,0 +1,20 @@
+olive-model: fetching openvla/openvla-7b-finetuned-libero-goal -> /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-goal
+olive-model: fetching openvla/openvla-7b-finetuned-libero-10 -> /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-10
+olive-model: fetching openvla/openvla-7b-finetuned-libero-spatial -> /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+olive-model: fetching openvla/openvla-7b-finetuned-libero-object -> /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-object
+/home/gibeom_pilab/.local/lib/python3.10/site-packages/huggingface_hub/cli/download.py:158: UserWarning: Ignoring `--include` since filenames have been explicitly set.
+  warnings.warn("Ignoring `--include` since filenames have been explicitly set.")
+Still waiting to acquire lock on /home/gibeom_pilab/LIBERO/LIBERO-plus/libero/datasets/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
+Still waiting to acquire lock on /home/gibeom_pilab/LIBERO/LIBERO-plus/libero/datasets/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
+Still waiting to acquire lock on /home/gibeom_pilab/olive/model_manager/openvla-7b-finetuned-libero-goal/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
+Still waiting to acquire lock on /home/gibeom_pilab/olive/model_manager/openvla-7b-finetuned-libero-10/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
+path=/home/gibeom_pilab/LIBERO/LIBERO-plus/libero/datasets
+path=/home/gibeom_pilab/olive/model_manager/openvla-7b-finetuned-libero-object
+olive-model: ready (15G) at /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-object
+path=/home/gibeom_pilab/olive/model_manager/openvla-7b-finetuned-libero-10
+olive-model: ready (15G) at /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-10
+path=/home/gibeom_pilab/olive/model_manager/openvla-7b-finetuned-libero-goal
+olive-model: ready (15G) at /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-goal
+path=/home/gibeom_pilab/olive/model_manager/openvla-7b-finetuned-libero-spatial
+olive-model: ready (15G) at /home/gibeom_pilab/olive/models/openvla-7b-finetuned-libero-spatial
+ALL_DOWNLOADS_DONE

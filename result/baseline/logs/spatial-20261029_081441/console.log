@@ -1,0 +1,160 @@
+2026-10-29 08:14:42.711088: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 08:14:42.711126: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 08:14:42.712087: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+[*] Instantiating Pretrained VLA model
+[*] Loading in BF16 with Flash-Attention Enabled
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.67it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.83it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.88it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.91it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.87it/s]
+Loaded model: <class 'transformers_modules.openvla.openvla-7b.47a0ec7fc4ec123775a391911046cf33cf9ed83f.modeling_prismatic.OpenVLAForActionPrediction'>
+Logging to local log file: /home/gibeom_pilab/olive/result/baseline/logs/spatial-20261029_081441/EVAL-libero_spatial-openvla-2026_10_29-08_14_49--baseline.txt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Task suite: libero_spatial
+  0%|          | 0/10 [00:00<?, ?it/s]/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:35<00:00, 35.60s/it][A100%|██████████| 1/1 [00:35<00:00, 35.60s/it]
+ 10%|█         | 1/10 [00:37<05:33, 37.02s/it]
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:43<00:00, 43.76s/it][A100%|██████████| 1/1 [00:43<00:00, 43.76s/it]
+ 20%|██        | 2/10 [01:21<05:31, 41.46s/it]
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=2--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [01:30<00:00, 90.36s/it][A100%|██████████| 1/1 [01:30<00:00, 90.36s/it]
+ 30%|███       | 3/10 [02:52<07:29, 64.16s/it]
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=3--success=False--task=pick_up_the_black_bowl_from_table_center_and_place.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+Current task success rate: 0.0
+Current total success rate: 0.6666666666666666
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:35<00:00, 35.26s/it][A100%|██████████| 1/1 [00:35<00:00, 35.26s/it]
+ 40%|████      | 4/10 [03:28<05:18, 53.08s/it]
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=4--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+Current task success rate: 1.0
+Current total success rate: 0.75
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:55<00:00, 55.22s/it][A100%|██████████| 1/1 [00:55<00:00, 55.22s/it]
+ 50%|█████     | 5/10 [04:24<04:30, 54.15s/it]
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=5--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+Current task success rate: 1.0
+Current total success rate: 0.8
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:45<00:00, 45.11s/it][A100%|██████████| 1/1 [00:45<00:00, 45.11s/it]
+ 60%|██████    | 6/10 [05:10<03:25, 51.35s/it]
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=6--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+Current task success rate: 1.0
+Current total success rate: 0.8333333333333334
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:45<00:00, 45.85s/it][A100%|██████████| 1/1 [00:45<00:00, 45.85s/it]
+ 70%|███████   | 7/10 [05:57<02:29, 49.82s/it]
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=7--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 6 (85.7%)
+Current task success rate: 1.0
+Current total success rate: 0.8571428571428571
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:51<00:00, 51.05s/it][A100%|██████████| 1/1 [00:51<00:00, 51.05s/it]
+ 80%|████████  | 8/10 [06:49<01:40, 50.47s/it]
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=8--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 7 (87.5%)
+Current task success rate: 1.0
+Current total success rate: 0.875
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:36<00:00, 36.05s/it][A100%|██████████| 1/1 [00:36<00:00, 36.05s/it]
+ 90%|█████████ | 9/10 [07:26<00:46, 46.23s/it]
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=9--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+Current task success rate: 1.0
+Current total success rate: 0.8888888888888888
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:48<00:00, 48.02s/it][A100%|██████████| 1/1 [00:48<00:00, 48.03s/it]
+100%|██████████| 10/10 [08:15<00:00, 47.05s/it]100%|██████████| 10/10 [08:15<00:00, 49.51s/it]
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path /home/gibeom_pilab/olive/result/baseline/rollouts/2026_10_29/2026_10_29-08_14_49--episode=10--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+Current task success rate: 1.0
+Current total success rate: 0.9

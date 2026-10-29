@@ -1,0 +1,43 @@
+2026-10-29 10:34:58 publish: libero_spatial (1/4 suites done)
+libero_spatial  baseline=0.85 (rerun 0.9)  olive=0.82  tasks=10
+libero_object   baseline=0.8700000000000001 (rerun 0.9)  olive=None  tasks=10
+libero_goal     baseline=0.775 (rerun 0.8)  olive=None  tasks=10
+libero_10       baseline=0.5349999999999999 (rerun 0.5)  olive=None  tasks=10
+wrote /home/gibeom_pilab/olive/experiments/full_run_20261029/results.json
+remote: Permission to gibeom25/olive.git denied to redEddie.
+fatal: unable to access 'https://github.com/gibeom25/olive.git/': The requested URL returned error: 403
+push retry 1
+remote: Permission to gibeom25/olive.git denied to redEddie.
+fatal: unable to access 'https://github.com/gibeom25/olive.git/': The requested URL returned error: 403
+push retry 2
+remote: Permission to gibeom25/olive.git denied to redEddie.
+fatal: unable to access 'https://github.com/gibeom25/olive.git/': The requested URL returned error: 403
+push retry 3
+2026-10-29 11:49:03 publish: libero_goal (2/4 suites done)
+libero_spatial  baseline=0.85 (rerun 0.9)  olive=0.82  tasks=10
+libero_object   baseline=0.8700000000000001 (rerun 0.9)  olive=None  tasks=10
+libero_goal     baseline=0.775 (rerun 0.8)  olive=0.73  tasks=10
+libero_10       baseline=0.5349999999999999 (rerun 0.5)  olive=None  tasks=10
+wrote /home/gibeom_pilab/olive/experiments/full_run_20261029/results.json
+To https://github.com/gibeom25/olive.git
+   a12335b..5790f2b  exp/full-run-20261029 -> exp/full-run-20261029
+Branch 'exp/full-run-20261029' set up to track remote branch 'exp/full-run-20261029' from 'origin'.
+2026-10-29 12:51:10 publish: libero_object (3/4 suites done)
+libero_spatial  baseline=0.85 (rerun 0.9)  olive=0.82  tasks=10
+libero_object   baseline=0.8700000000000001 (rerun 0.9)  olive=0.88  tasks=10
+libero_goal     baseline=0.775 (rerun 0.8)  olive=0.73  tasks=10
+libero_10       baseline=0.5349999999999999 (rerun 0.5)  olive=None  tasks=10
+wrote /home/gibeom_pilab/olive/experiments/full_run_20261029/results.json
+To https://github.com/gibeom25/olive.git
+   5790f2b..45ed4c9  exp/full-run-20261029 -> exp/full-run-20261029
+Branch 'exp/full-run-20261029' set up to track remote branch 'exp/full-run-20261029' from 'origin'.
+2026-10-29 12:59:17 publish: libero_10 (4/4 suites done)
+libero_spatial  baseline=0.85 (rerun 0.9)  olive=0.82  tasks=10
+libero_object   baseline=0.8700000000000001 (rerun 0.9)  olive=0.88  tasks=10
+libero_goal     baseline=0.775 (rerun 0.8)  olive=0.73  tasks=10
+libero_10       baseline=0.5349999999999999 (rerun 0.5)  olive=0.58  tasks=10
+wrote /home/gibeom_pilab/olive/experiments/full_run_20261029/results.json
+To https://github.com/gibeom25/olive.git
+   45ed4c9..e821b19  exp/full-run-20261029 -> exp/full-run-20261029
+Branch 'exp/full-run-20261029' set up to track remote branch 'exp/full-run-20261029' from 'origin'.
+AUTO_PUBLISH_DONE
