@@ -1,0 +1,68 @@
+{
+ "suite": "libero_goal",
+ "total_sr": 0.73,
+ "n_episodes": 100,
+ "per_task": [
+  {
+   "task_id": 0,
+   "task": "open the middle drawer of the cabinet",
+   "sr": 0.5,
+   "n": 10
+  },
+  {
+   "task_id": 1,
+   "task": "put the bowl on the stove",
+   "sr": 1.0,
+   "n": 10
+  },
+  {
+   "task_id": 2,
+   "task": "put the wine bottle on top of the cabinet",
+   "sr": 0.8,
+   "n": 10
+  },
+  {
+   "task_id": 3,
+   "task": "open the top drawer and put the bowl inside",
+   "sr": 0.4,
+   "n": 10
+  },
+  {
+   "task_id": 4,
+   "task": "put the bowl on top of the cabinet",
+   "sr": 0.7,
+   "n": 10
+  },
+  {
+   "task_id": 5,
+   "task": "push the plate to the front of the stove",
+   "sr": 0.6,
+   "n": 10
+  },
+  {
+   "task_id": 6,
+   "task": "put the cream cheese in the bowl",
+   "sr": 0.7,
+   "n": 10
+  },
+  {
+   "task_id": 7,
+   "task": "turn on the stove",
+   "sr": 0.9,
+   "n": 10
+  },
+  {
+   "task_id": 8,
+   "task": "put the bowl on the plate",
+   "sr": 1.0,
+   "n": 10
+  },
+  {
+   "task_id": 9,
+   "task": "put the wine bottle on the rack",
+   "sr": 0.7,
+   "n": 10
+  }
+ ],
+ "ckpt": "/home/gibeom_pilab/olive/result/olive-libero_goal-main/ckpt/best.pt"
+}

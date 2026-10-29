@@ -1,0 +1,135 @@
+2026-10-29 08:21:45.012094: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-29 08:21:45.012138: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-29 08:21:45.013196: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+10/29 [08:21:51] WARNING  | >> No private macro file found!        __init__.py:7
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+                 WARNING  | >> It is recommended to use a private  __init__.py:8
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /home/gibeom_pilab/anaconda3/envs/openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+                 WARNING  | >> To setup, run: python               __init__.py:9
+                          /home/gibeom_pilab/anaconda3/envs/openvl              
+                          a/lib/python3.10/site-packages/robosuite              
+                          /scripts/setup_macros.py                              
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[OLIVE] run_dir = /home/gibeom_pilab/olive/result/olive-libero_10-main
+[OLIVE] suite=libero_10  ablation-run=olive-libero_10-main  bc=False inject=lm_head z_dim=256
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.19it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.50it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.64it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.74it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.64it/s]
+[OLIVE][backbone] loaded openvla-7b-finetuned-libero-10  hidden_dim=4096 vocab_size=32000 attn=flash_attention_2 norm_stats_keys=['libero_10']
+[OLIVE] ActionBasisProjection: B(256, 4096) decode(lm_head) / inject=lm_head, alpha=1.0, bins=256, z_dim=256
+[OLIVE] trainable params: {'actor': 1114880, 'critic': 1049089, 'total': 2163969} + proj 0
+[OLIVE] loaded init head from /home/gibeom_pilab/olive/result/olive-libero_10-main/ckpt/after_bc.pt
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+/home/gibeom_pilab/LIBERO/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE] PPO: 10 iterations x 512 steps (total ~5120)
+[OLIVE] it 1/10  rollout 수집 (target 512, cursor@t0) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t0  OK  460 steps  buffer 460/512  | put both the alphabet soup and the tomat
+[OLIVE][rollout]   ep2 t0  OK  280 steps  buffer 740/512  | put both the alphabet soup and the tomat
+[OLIVE] it 1/10  rollout 2ep/740st  1 tasks  SR(iter/ema/cum) 1.00/1.00/1.00  (4.8m) -> PPO update
+[OLIVE] it   1/10  step    740  SR 1.00 ema 1.00 cum 1.00  π -0.059  V 309.226  H -148.8  KL 0.171  gn 131.99/0.69  σR 27.0  lr 1.0e-04  (4.8m)
+[OLIVE] it 2/10  rollout 수집 (target 512, cursor@t1) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t1  OK  286 steps  buffer 286/512  | put both the cream cheese box and the bu
+[OLIVE][rollout]   ep2 t1  OK  293 steps  buffer 579/512  | put both the cream cheese box and the bu
+[OLIVE] it 2/10  rollout 2ep/579st  1 tasks  SR(iter/ema/cum) 1.00/1.00/1.00  (3.9m) -> PPO update
+[OLIVE] it   2/10  step   1319  SR 1.00 ema 1.00 cum 1.00  π -0.051  V 355.809  H -148.8  KL 0.060  gn 136.46/1.13  σR 25.4  lr 8.7e-05  (8.7m)
+[OLIVE] it 3/10  rollout 수집 (target 512, cursor@t2) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t2  OK  254 steps  buffer 254/512  | turn on the stove and put the moka pot o
+[OLIVE][rollout]   ep2 t2  fail 520 steps  buffer 774/512  | turn on the stove and put the moka pot o
+[OLIVE] it 3/10  rollout 2ep/774st  1 tasks  SR(iter/ema/cum) 0.50/0.95/0.83  (4.6m) -> PPO update
+[OLIVE] it   3/10  step   2093  SR 0.50 ema 0.95 cum 0.83  π +0.075  V 482.638  H -148.8  KL 0.037  gn 113.24/1.79  σR 27.4  lr 7.6e-05  (13.3m)
+[OLIVE] it 4/10  rollout 수집 (target 512, cursor@t3) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t3  fail 520 steps  buffer 520/512  | put the black bowl in the bottom drawer 
+[OLIVE] it 4/10  rollout 1ep/520st  1 tasks  SR(iter/ema/cum) 0.00/0.86/0.71  (3.6m) -> PPO update
+[OLIVE] it   4/10  step   2613  SR 0.00 ema 0.86 cum 0.71  π +0.058  V 641.747  H -148.8  KL 0.035  gn 165.07/2.70  σR 27.8  lr 6.2e-05  (16.9m)
+[OLIVE] it 5/10  rollout 수집 (target 512, cursor@t4) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t4  OK  248 steps  buffer 248/512  | put the white mug on the left plate and 
+[OLIVE][rollout]   ep2 t4  fail 520 steps  buffer 768/512  | put the white mug on the left plate and 
+[OLIVE] it 5/10  rollout 2ep/768st  1 tasks  SR(iter/ema/cum) 0.50/0.82/0.67  (5.2m) -> PPO update
+[OLIVE] it   5/10  step   3381  SR 0.50 ema 0.82 cum 0.67  π -0.033  V 505.518  H -148.8  KL 0.040  gn 139.12/1.07  σR 28.3  lr 5.3e-05  (22.1m)
+[OLIVE] it 6/10  rollout 수집 (target 512, cursor@t5) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t5  OK  163 steps  buffer 163/512  | pick up the book and place it in the bac
+[OLIVE][rollout]   ep2 t5  OK  168 steps  buffer 331/512  | pick up the book and place it in the bac
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep3 t6  fail 520 steps  buffer 851/512  | put the white mug on the plate and put t
+[OLIVE] it 6/10  rollout 3ep/851st  2 tasks  SR(iter/ema/cum) 0.67/0.80/0.67  (5.8m) -> PPO update
+[OLIVE] it   6/10  step   4232  SR 0.67 ema 0.80 cum 0.67  π +0.075  V 509.848  H -148.8  KL 0.023  gn 125.72/1.00  σR 30.5  lr 3.9e-05  (28.0m)
+[OLIVE] it 7/10  rollout 수집 (target 512, cursor@t7) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t7  fail 520 steps  buffer 520/512  | put both the alphabet soup and the cream
+[OLIVE] it 7/10  rollout 1ep/520st  1 tasks  SR(iter/ema/cum) 0.00/0.72/0.62  (3.6m) -> PPO update
+[OLIVE] it   7/10  step   4752  SR 0.00 ema 0.72 cum 0.62  π +0.019  V 563.508  H -148.8  KL 0.031  gn 151.62/1.92  σR 31.0  lr 2.4e-05  (31.6m)
+[OLIVE] it 8/10  rollout 수집 (target 512, cursor@t8) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t8  fail 520 steps  buffer 520/512  | put both moka pots on the stove
+[OLIVE] it 8/10  rollout 1ep/520st  1 tasks  SR(iter/ema/cum) 0.00/0.65/0.57  (3.6m) -> PPO update
+[OLIVE] it   8/10  step   5272  SR 0.00 ema 0.65 cum 0.57  π -0.058  V 521.999  H -148.8  KL -0.025  gn 88.36/1.48  σR 32.1  lr 1.4e-05  (35.2m)
+[OLIVE] it 9/10  rollout 수집 (target 512, cursor@t9) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t9  OK  451 steps  buffer 451/512  | put the yellow and white mug in the micr
+[OLIVE][rollout]   ep2 t9  OK  366 steps  buffer 817/512  | put the yellow and white mug in the micr
+[OLIVE] it 9/10  rollout 2ep/817st  1 tasks  SR(iter/ema/cum) 1.00/0.69/0.62  (5.6m) -> PPO update
+[OLIVE] it   9/10  step   6089  SR 1.00 ema 0.69 cum 0.62  π -0.066  V 467.755  H -148.8  KL 0.006  gn 83.60/0.57  σR 31.3  lr 1.0e-05  (40.8m)
+[OLIVE] it 10/10  rollout 수집 (target 512, cursor@t0) ...
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[OLIVE][rollout]   ep1 t0  OK  437 steps  buffer 437/512  | put both the alphabet soup and the tomat
+[OLIVE][rollout]   ep2 t0  OK  271 steps  buffer 708/512  | put both the alphabet soup and the tomat
+[OLIVE] it 10/10  rollout 2ep/708st  1 tasks  SR(iter/ema/cum) 1.00/0.72/0.67  (4.7m) -> PPO update
+[OLIVE] it  10/10  step   6797  SR 1.00 ema 0.72 cum 0.67  π -0.060  V 430.138  H -148.8  KL 0.011  gn 128.86/0.55  σR 31.3  lr 1.0e-05  (45.5m)
+[OLIVE] it 10/10  eval 1 ep/task ...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  0  SR 100.0%  put both the alphabet soup and the tomato sauce in the basket
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  1  SR 100.0%  put both the cream cheese box and the butter in the basket
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  2  SR 100.0%  turn on the stove and put the moka pot on it
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  3  SR  0.0%  put the black bowl in the bottom drawer of the cabinet and close it
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  4  SR  0.0%  put the white mug on the left plate and put the yellow and white mug on the right plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  5  SR 100.0%  pick up the book and place it in the back compartment of the caddy
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  6  SR 100.0%  put the white mug on the plate and put the chocolate pudding to the right of the plate
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  7  SR 100.0%  put both the alphabet soup and the cream cheese box in the basket
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  8  SR 100.0%  put both moka pots on the stove
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/gibeom_pilab/LIBERO/LIBERO/libero/libero/../datasets does not exist!
+  [libero_10] task  9  SR 100.0%  put the yellow and white mug in the microwave and close it
+  [libero_10] TOTAL SR 80.0%  (10 episodes)
+[OLIVE]   eval SR 80.0%
+[OLIVE] done. best eval SR = 80.0%  (68.3m)
