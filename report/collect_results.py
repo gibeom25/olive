@@ -27,8 +27,8 @@ import shutil
 ROOT = os.path.expanduser("~/olive/result")
 SUITES = ["libero_spatial", "libero_object", "libero_goal", "libero_10"]
 ALIAS = {"libero_spatial": "spatial", "libero_object": "object", "libero_goal": "goal", "libero_10": "long"}
-# OLIVE 논문 Table (frozen OpenVLA vanilla / OLIVE) — docs/baseline_libero_eval.md, experiment_log
-PAPER = {"libero_spatial": (60.0, None), "libero_object": (88.0, None),
+# OLIVE 논문 Table 2 (frozen OpenVLA vanilla, OLIVE) — docs/paper/
+PAPER = {"libero_spatial": (60.0, 91.9), "libero_object": (88.0, 38.5),
          "libero_goal": (70.0, 71.4), "libero_10": (40.0, 50.0)}
 
 

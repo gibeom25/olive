@@ -34,5 +34,4 @@ run_all_console_*.log
 model_manager/openvla-*/
 models
 openvla/
-report/build/media/*.mp4
 !experiments/**/media/*.mp4

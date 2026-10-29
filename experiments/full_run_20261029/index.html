@@ -1,0 +1,294 @@
+<title>OLIVE LIBERO 결과</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-notebook report — summary band, then one suite at a time (tabs) with task table, curves, paired videos */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --ink: #14171a;
+  --ink-2: #4d545b;
+  --ink-3: #7a828a;
+  --rule: #dde1e5;
+  --olive: #2a78d6;          /* OLIVE series (categorical slot 1) */
+  --base: #9aa1a8;           /* frozen OpenVLA baseline: neutral reference */
+  --paper: #eb6834;          /* paper-reported values (slot 2), drawn as ticks */
+  --good: #1a7f37; --bad: #c2382f;
+  --font-ui: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121416; --surface: #1b1e21; --ink: #eef0f2; --ink-2: #b4bbc2; --ink-3: #868e96;
+  --rule: #2e3338; --olive: #3987e5; --base: #6f777f; --paper: #d95926; --good: #4ac26b; --bad: #f07067;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121416; --surface: #1b1e21; --ink: #eef0f2; --ink-2: #b4bbc2; --ink-3: #868e96;
+  --rule: #2e3338; --olive: #3987e5; --base: #6f777f; --paper: #d95926; --good: #4ac26b; --bad: #f07067;
+  color-scheme: dark; }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 36px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.25; }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 19px; font-weight: 600; }
+h3 { font-size: 15px; font-weight: 600; }
+p { margin: 0; max-width: 68ch; color: var(--ink-2); }
+.mono, .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+
+header { display: grid; gap: 10px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-3); }
+
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 20px; display: grid; gap: 16px; min-width: 0; }
+section { display: grid; gap: 14px; }
+
+/* summary table */
+.tbl-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 9px 10px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 500; color: var(--ink-3); font-size: 12px; letter-spacing: 0.03em; }
+td.task { white-space: normal; min-width: 220px; max-width: 420px; color: var(--ink-2); }
+tr:last-child td { border-bottom: 0; }
+.delta.pos { color: var(--good); } .delta.neg { color: var(--bad); }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); }
+.pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ink-3); }
+.pill.done::before { background: var(--good); }
+.pill.run::before { background: var(--paper); }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw.tick { width: 3px; height: 14px; border-radius: 1px; }
+
+svg text { fill: var(--ink-2); font-family: var(--font-mono); font-size: 11px; }
+svg .lbl { fill: var(--ink); font-family: var(--font-ui); font-size: 12px; }
+svg .grid { stroke: var(--rule); stroke-width: 1; }
+
+/* tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tabs button { font: inherit; font-size: 14px; padding: 7px 14px; border-radius: 6px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink-2); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.tabs button[aria-selected="true"] { border-color: var(--olive); color: var(--ink); box-shadow: inset 0 -2px 0 var(--olive); }
+.tabs button:focus-visible, video:focus-visible { outline: 2px solid var(--olive); outline-offset: 2px; }
+
+.curves { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.curve { display: grid; gap: 4px; min-width: 0; }
+.curve .cap { font-size: 12px; color: var(--ink-3); }
+
+.videos { display: grid; gap: 18px; }
+.vrow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.vrow .vt { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 13px; }
+.vrow .vt b { font-weight: 500; color: var(--ink); }
+figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
+figure video, figure .novid { width: 100%; max-width: 100%; aspect-ratio: 1 / 1; background: var(--bg); border-radius: 6px; border: 1px solid var(--rule); object-fit: contain; }
+figure .novid { display: grid; place-items: center; color: var(--ink-3); font-size: 13px; }
+figcaption { font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; gap: 8px; }
+.ok { color: var(--good); } .ng { color: var(--bad); }
+
+.notes { display: grid; gap: 8px; font-size: 14px; color: var(--ink-2); }
+.notes li { max-width: 80ch; }
+#tip { position: fixed; pointer-events: none; z-index: 20; background: var(--surface); color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: 6px 9px; font-size: 12px; box-shadow: 0 4px 14px rgb(0 0 0 / 0.12); max-width: 280px; }
+.empty { color: var(--ink-3); font-size: 14px; }
+@media (max-width: 560px) { .vrow { grid-template-columns: 1fr; } h1 { font-size: 23px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">OLIVE · LIBERO · full run 2026-10-29</div>
+    <h1>Frozen OpenVLA-7B 위 z-space 잔차 RL, 4개 LIBERO suite 결과</h1>
+    <p>각 suite 의 LIBERO-SFT 체크포인트(고정)에 2.16M 파라미터 head 를 붙여 critic BC 후 PPO 5,000 step 학습. 최종 성공률은 task 당 10 에피소드(suite 당 100)의 결정론적 평가.</p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <section>
+    <h2>Suite 별 성공률</h2>
+    <div class="panel">
+      <div class="legend">
+        <span><i class="sw" style="background:var(--base)"></i>Frozen OpenVLA (우리 측정, 200 ep)</span>
+        <span><i class="sw" style="background:var(--olive)"></i>OLIVE (이번 run, 100 ep)</span>
+        <span><i class="sw tick" style="background:var(--paper)"></i>OLIVE 논문 보고값</span>
+      </div>
+      <div id="sumchart"></div>
+      <div class="tbl-scroll"><table id="sumtbl"></table></div>
+      <p style="font-size:13px">± 는 이항 95% 구간(1.96·√(p(1−p)/n)). 100 에피소드 기준 약 ±7–10pp 이므로 그보다 작은 차이는 노이즈 범위.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Suite 상세</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="panel" id="detail"></div>
+  </section>
+
+  <section>
+    <h2>설정</h2>
+    <div class="panel"><ul class="notes" id="notes">
+      <li>Backbone: <span class="mono">openvla/openvla-7b-finetuned-libero-{spatial,object,goal,10}</span>, 완전 고정. 학습 대상은 Actor/Critic MLP(2.16M)뿐.</li>
+      <li>잔차: z ∈ ℝ²⁵⁶, Δh = z·B (B = LM head 의 action-token 256 행), h′ = h + Δh 로 7-step greedy decode.</li>
+      <li>BC: LIBERO 데모로 critic 만 return-to-go 회귀 (frame stride 15, 3 epoch). Actor 는 warm-start(출력 0 근방).</li>
+      <li>PPO: 5,000 env step (buffer 512 → 10 iteration), lr 1e-4→1e-5, target KL 0.05, entropy per-dim.</li>
+      <li>이번 run 의 변경: value loss 를 return 의 running variance 로 정규화, actor/critic grad 개별 클리핑. 9월 run 에서 critic grad norm 500–2000 으로 매 스텝 클리핑되던 문제를 고침(이번 run critic grad norm ≈ 1).</li>
+      <li>Baseline 성공률은 2026-09-01 측정값(같은 체크포인트·평가 코드·seed 7, task 당 20 에피소드). 이번 run 에서 task 당 1 에피소드로 재실행해 영상과 정합성만 확인.</li>
+    </ul></div>
+  </section>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const SUITE_NAME = { libero_spatial: "Spatial", libero_object: "Object", libero_goal: "Goal", libero_10: "Long (10)" };
+const tip = document.getElementById("tip");
+function showTip(e, html) { tip.innerHTML = html; tip.hidden = false; moveTip(e); }
+function moveTip(e) { const x = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8); tip.style.left = x + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+function hideTip() { tip.hidden = true; }
+const pct = v => v == null ? "—" : (v * 100).toFixed(1) + "%";
+const ci = (p, n) => (p == null || !n) ? null : 1.96 * Math.sqrt(p * (1 - p) / n);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs = {}, parent) { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; }
+function statusOf(s) { return s.olive && s.olive.total_sr != null ? "done" : (s.olive ? "run" : "queue"); }
+const STATUS_TXT = { done: "완료", run: "진행 중", queue: "대기" };
+
+/* horizontal paired bars: rows = [{label, base, olive, paper, tipBase, tipOlive}] */
+function pairedBars(host, rows, { labelW = 120 } = {}) {
+  const W = 720, rowH = 40, top = 22, H = top + rows.length * rowH + 8, x0 = labelW, x1 = W - 16;
+  const sx = v => x0 + (x1 - x0) * v;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", role: "img" });
+  for (const t of [0, .25, .5, .75, 1]) {
+    el("line", { x1: sx(t), x2: sx(t), y1: top - 6, y2: H - 6, class: "grid" }, svg);
+    el("text", { x: sx(t), y: 12, "text-anchor": "middle" }, svg).textContent = (t * 100) + "%";
+  }
+  rows.forEach((r, i) => {
+    const y = top + i * rowH;
+    const lab = el("text", { x: 0, y: y + rowH / 2 + 4, class: "lbl" }, svg); lab.textContent = r.label;
+    const bars = [["base", "var(--base)", r.base, r.tipBase], ["olive", "var(--olive)", r.olive, r.tipOlive]];
+    bars.forEach(([k, c, v, t], j) => {
+      const by = y + 6 + j * 14;
+      if (v == null) { el("text", { x: x0 + 4, y: by + 10 }, svg).textContent = k === "olive" ? "진행 중" : "—"; return; }
+      const w = Math.max(2, sx(v) - x0);
+      el("rect", { x: x0, y: by, width: w, height: 12, rx: 3, fill: c }, svg);
+      el("text", { x: x0 + w + 5, y: by + 10 }, svg).textContent = (v * 100).toFixed(1);
+      const hit = el("rect", { x: x0, y: by - 1, width: x1 - x0, height: 14, fill: "transparent" }, svg);
+      hit.addEventListener("pointermove", e => showTip(e, t)); hit.addEventListener("pointerleave", hideTip);
+    });
+    if (r.paper != null) el("rect", { x: sx(r.paper) - 1.5, y: y + 3, width: 3, height: 32, rx: 1, fill: "var(--paper)" }, svg);
+  });
+  host.replaceChildren(svg);
+}
+
+/* small line chart for one metric over PPO iterations */
+function lineChart(host, pts, { yMin, yMax, fmt = v => v.toFixed(2), color = "var(--olive)", dots } = {}) {
+  const W = 300, H = 140, l = 40, r = 10, t = 10, b = 22;
+  if (!pts.length) { host.innerHTML = '<div class="empty">데이터 없음</div>'; return; }
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y).concat(dots ? dots.map(d => d.y) : []);
+  const lo = yMin ?? Math.min(...ys), hi = yMax ?? Math.max(...ys), span = (hi - lo) || 1;
+  const sx = x => l + (W - l - r) * (x - xs[0]) / ((xs[xs.length - 1] - xs[0]) || 1);
+  const sy = y => t + (H - t - b) * (1 - (y - lo) / span);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%" });
+  for (const f of [0, .5, 1]) { const v = lo + span * f; el("line", { x1: l, x2: W - r, y1: sy(v), y2: sy(v), class: "grid" }, svg);
+    el("text", { x: l - 5, y: sy(v) + 4, "text-anchor": "end" }, svg).textContent = fmt(v); }
+  for (const x of [xs[0], xs[xs.length - 1]]) el("text", { x: sx(x), y: H - 6, "text-anchor": "middle" }, svg).textContent = "it " + x;
+  if (dots) dots.forEach(d => el("circle", { cx: sx(d.x), cy: sy(d.y), r: 3, fill: "var(--base)" }, svg));
+  el("path", { d: pts.map((p, i) => (i ? "L" : "M") + sx(p.x).toFixed(1) + " " + sy(p.y).toFixed(1)).join(""), fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }, svg);
+  const last = pts[pts.length - 1]; el("circle", { cx: sx(last.x), cy: sy(last.y), r: 4, fill: color, stroke: "var(--surface)", "stroke-width": 2 }, svg);
+  const cross = el("line", { y1: t, y2: H - b, stroke: "var(--ink-3)", "stroke-width": 1, visibility: "hidden" }, svg);
+  const hit = el("rect", { x: l, y: t, width: W - l - r, height: H - t - b, fill: "transparent" }, svg);
+  hit.addEventListener("pointermove", e => {
+    const bb = svg.getBoundingClientRect(), px = (e.clientX - bb.left) * W / bb.width;
+    let best = pts[0]; for (const p of pts) if (Math.abs(sx(p.x) - px) < Math.abs(sx(best.x) - px)) best = p;
+    cross.setAttribute("x1", sx(best.x)); cross.setAttribute("x2", sx(best.x)); cross.setAttribute("visibility", "visible");
+    showTip(e, `iteration ${best.x}<br><b>${fmt(best.y)}</b>` + (best.extra ? "<br>" + best.extra : ""));
+  });
+  hit.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+  host.replaceChildren(svg);
+}
+
+function renderSummary(data) {
+  const S = data.suites;
+  const done = S.filter(s => statusOf(s) === "done").length;
+  document.getElementById("meta").innerHTML =
+    `<span>완료 suite ${done}/4</span><span>${S.map(s => `${SUITE_NAME[s.suite]} <span class="pill ${statusOf(s)}">${STATUS_TXT[statusOf(s)]}</span>`).join(" ")}</span>`;
+  pairedBars(document.getElementById("sumchart"), S.map(s => {
+    const b = s.baseline?.total_sr, o = s.olive?.total_sr;
+    return { label: SUITE_NAME[s.suite], base: b, olive: o, paper: s.paper_olive != null ? s.paper_olive / 100 : null,
+      tipBase: `Frozen OpenVLA · ${SUITE_NAME[s.suite]}<br><b>${pct(b)}</b> (n=${s.baseline?.n_episodes ?? "—"})`,
+      tipOlive: `OLIVE · ${SUITE_NAME[s.suite]}<br><b>${pct(o)}</b> (n=${s.olive?.n_episodes ?? "—"})` };
+  }), { labelW: 92 });
+  const rows = S.map(s => {
+    const b = s.baseline?.total_sr, o = s.olive?.total_sr, n = s.olive?.n_episodes;
+    const d = (b != null && o != null) ? o - b : null, c = ci(o, n);
+    const best = s.olive?.evals?.length ? Math.max(...s.olive.evals.map(e => e.total_sr)) : null;
+    return `<tr><td>${SUITE_NAME[s.suite]} <span class="pill ${statusOf(s)}">${STATUS_TXT[statusOf(s)]}</span></td>
+      <td class="num">${pct(b)}</td><td class="num">${o == null ? "—" : pct(o) + (c ? ` <span style="color:var(--ink-3)">±${(c * 100).toFixed(0)}</span>` : "")}</td>
+      <td class="num delta ${d == null ? "" : d >= 0 ? "pos" : "neg"}">${d == null ? "—" : (d >= 0 ? "+" : "") + (d * 100).toFixed(1) + "pp"}</td>
+      <td class="num">${s.baseline_rerun ? pct(s.baseline_rerun.total_sr) : "—"}</td>
+      <td class="num">${s.paper_baseline != null ? s.paper_baseline.toFixed(1) + "%" : "—"}</td>
+      <td class="num">${s.paper_olive != null ? s.paper_olive.toFixed(1) + "%" : "—"}</td></tr>`;
+  }).join("");
+  document.getElementById("sumtbl").innerHTML =
+    `<thead><tr><th>Suite</th><th>Frozen OpenVLA</th><th>OLIVE</th><th>Δ</th><th>Baseline 재실행 (10 ep)</th><th>논문 baseline</th><th>논문 OLIVE</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+function renderDetail(s) {
+  const host = document.getElementById("detail");
+  const o = s.olive, it = o?.iters || [];
+  const tasks = s.tasks || [];
+  host.innerHTML = `
+    <div style="display:grid;gap:6px">
+      <h3>${SUITE_NAME[s.suite]} — ${STATUS_TXT[statusOf(s)]}</h3>
+      <p style="font-size:14px">Frozen OpenVLA ${pct(s.baseline?.total_sr)} → OLIVE ${pct(o?.total_sr)}${o?.bc?.critic_loss != null ? ` · BC critic loss ${o.bc.critic_loss.toFixed(0)}` : ""}${it.length ? ` · PPO ${it.length} iteration, ${it[it.length - 1].global_step.toLocaleString()} step, ${it[it.length - 1].minutes.toFixed(0)}분` : ""}</p>
+    </div>
+    <div style="display:grid;gap:8px"><div class="eyebrow">Task 별 성공률</div><div id="taskbars"></div></div>
+    <div class="tbl-scroll"><table><thead><tr><th>#</th><th style="text-align:left">Task</th><th>Frozen OpenVLA</th><th>OLIVE</th><th>Δ</th></tr></thead><tbody>
+      ${tasks.map(t => { const d = (t.olive_sr != null && t.baseline_sr != null) ? t.olive_sr - t.baseline_sr : null;
+        return `<tr><td class="num">${t.task_id}</td><td class="task">${esc(t.task)}</td><td class="num">${pct(t.baseline_sr)}</td><td class="num">${pct(t.olive_sr)}</td>
+        <td class="num delta ${d == null ? "" : d >= 0 ? "pos" : "neg"}">${d == null ? "—" : (d >= 0 ? "+" : "") + (d * 100).toFixed(0) + "pp"}</td></tr>`; }).join("")}
+    </tbody></table></div>
+    <div style="display:grid;gap:8px"><div class="eyebrow">PPO 학습 지표 (iteration 별)</div>
+      <div class="curves">
+        <div class="curve"><h3>Rollout 성공률</h3><div class="cap">선: EMA(α=0.1) · 점: iteration 별 값</div><div id="c-sr"></div></div>
+        <div class="curve"><h3>Approx KL</h3><div class="cap">target 0.05, 1.5배 초과 시 epoch 중단</div><div id="c-kl"></div></div>
+        <div class="curve"><h3>Critic grad norm</h3><div class="cap">클리핑 전, max 1.0</div><div id="c-gc"></div></div>
+        <div class="curve"><h3>Value loss (정규화)</h3><div class="cap">0.5·(V−R)² / Var(R)</div><div id="c-vl"></div></div>
+      </div></div>
+    <div style="display:grid;gap:8px"><div class="eyebrow">Rollout 영상 (task 당 1개, 성공 에피소드 우선)</div>
+      <div class="videos">${tasks.map(t => `
+        <div class="vrow"><div class="vt"><b>${t.task_id}. ${esc(t.task)}</b><span class="mono">${pct(t.baseline_sr)} → ${pct(t.olive_sr)}</span></div>
+          ${["baseline", "olive"].map(m => `<figure>${t[m + "_video"]
+            ? `<video controls muted loop playsinline preload="none" poster="${t[m + "_thumb"] || ""}" src="${t[m + "_video"]}" aria-label="${m} ${esc(t.task)}"></video>`
+            : `<div class="novid">${m === "olive" && statusOf(s) !== "done" ? "학습 진행 중" : "영상 없음"}</div>`}
+            <figcaption><span>${m === "baseline" ? "Frozen OpenVLA" : "OLIVE"}</span>${t[m + "_video"] ? `<span class="${t[m + "_video_success"] ? "ok" : "ng"}">${t[m + "_video_success"] ? "성공" : "실패"}</span>` : ""}</figcaption></figure>`).join("")}
+        </div>`).join("")}</div></div>`;
+  pairedBars(document.getElementById("taskbars"), tasks.map(t => ({
+    label: "task " + t.task_id, base: t.baseline_sr, olive: t.olive_sr,
+    tipBase: `${esc(t.task)}<br>Frozen OpenVLA <b>${pct(t.baseline_sr)}</b> (n=${t.baseline_n ?? "—"})`,
+    tipOlive: `${esc(t.task)}<br>OLIVE <b>${pct(t.olive_sr)}</b> (n=${t.olive_n ?? "—"})` })), { labelW: 64 });
+  const P = k => it.map(r => ({ x: r.iter, y: r[k] }));
+  lineChart(document.getElementById("c-sr"), it.map(r => ({ x: r.iter, y: r.rollout_sr_ema, extra: `iter SR ${pct(r.rollout_sr)}` })),
+    { yMin: 0, yMax: 1, fmt: v => (v * 100).toFixed(0) + "%", dots: P("rollout_sr") });
+  lineChart(document.getElementById("c-kl"), P("approx_kl"), { fmt: v => v.toFixed(3) });
+  lineChart(document.getElementById("c-gc"), P("grad_norm_critic"), { yMin: 0, fmt: v => v.toFixed(2) });
+  lineChart(document.getElementById("c-vl"), P("value_loss_norm"), { yMin: 0, fmt: v => v.toFixed(2) });
+}
+
+function renderTabs(data) {
+  const tabs = document.getElementById("tabs");
+  let cur = "libero_10";
+  try { cur = localStorage.getItem("olive-tab") || cur; } catch (e) {}
+  if (location.hash && data.suites.some(s => s.alias === location.hash.slice(1))) cur = data.suites.find(s => s.alias === location.hash.slice(1)).suite;
+  const sel = id => {
+    cur = id; try { localStorage.setItem("olive-tab", id); } catch (e) {}
+    tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.dataset.id === id));
+    renderDetail(data.suites.find(s => s.suite === id));
+  };
+  tabs.innerHTML = data.suites.map(s => `<button role="tab" id="tab-${s.alias}" data-id="${s.suite}">${SUITE_NAME[s.suite]}<span class="pill ${statusOf(s)}">${STATUS_TXT[statusOf(s)]}</span></button>`).join("");
+  tabs.querySelectorAll("button").forEach(b => b.addEventListener("click", () => sel(b.dataset.id)));
+  sel(data.suites.some(s => s.suite === cur) ? cur : data.suites[0].suite);
+}
+
+fetch("results.json").then(r => r.json()).then(data => { renderSummary(data); renderTabs(data); })
+  .catch(e => { document.getElementById("detail").innerHTML = `<div class="empty">results.json 을 읽지 못했습니다: ${esc(e.message)}</div>`; });
+</script>
