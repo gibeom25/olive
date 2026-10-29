@@ -418,8 +418,8 @@
     "source": "2026-09-01 baseline run (docs/baseline_libero_eval.md)"
    },
    "olive": {
-    "total_sr": null,
-    "n_episodes": null,
+    "total_sr": 0.88,
+    "n_episodes": 100,
     "bc": {
      "critic_loss": 193.70454603172956
     },
@@ -659,8 +659,8 @@
      "task": "pick up the alphabet soup and place it in the basket",
      "baseline_sr": 0.95,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.7,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t00_baseline.mp4",
      "baseline_video_success": true,
      "baseline_thumb": "media/libero_object_t00_baseline.jpg",
@@ -673,8 +673,8 @@
      "task": "pick up the cream cheese and place it in the basket",
      "baseline_sr": 0.8,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.8,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t01_baseline.mp4",
      "baseline_video_success": true,
      "baseline_thumb": "media/libero_object_t01_baseline.jpg",
@@ -687,88 +687,112 @@
      "task": "pick up the salad dressing and place it in the basket",
      "baseline_sr": 0.95,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.9,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t02_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t02_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t02_baseline.jpg",
+     "olive_video": "media/libero_object_t02_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t02_olive.jpg"
     },
     {
      "task_id": 3,
      "task": "pick up the bbq sauce and place it in the basket",
      "baseline_sr": 0.65,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.8,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t03_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t03_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t03_baseline.jpg",
+     "olive_video": "media/libero_object_t03_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t03_olive.jpg"
     },
     {
      "task_id": 4,
      "task": "pick up the ketchup and place it in the basket",
      "baseline_sr": 1.0,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.9,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t04_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t04_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t04_baseline.jpg",
+     "olive_video": "media/libero_object_t04_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t04_olive.jpg"
     },
     {
      "task_id": 5,
      "task": "pick up the tomato sauce and place it in the basket",
      "baseline_sr": 0.8,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.8,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t05_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t05_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t05_baseline.jpg",
+     "olive_video": "media/libero_object_t05_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t05_olive.jpg"
     },
     {
      "task_id": 6,
      "task": "pick up the butter and place it in the basket",
      "baseline_sr": 0.9,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 0.9,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t06_baseline.mp4",
      "baseline_video_success": false,
-     "baseline_thumb": "media/libero_object_t06_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t06_baseline.jpg",
+     "olive_video": "media/libero_object_t06_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t06_olive.jpg"
     },
     {
      "task_id": 7,
      "task": "pick up the milk and place it in the basket",
      "baseline_sr": 0.9,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 1.0,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t07_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t07_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t07_baseline.jpg",
+     "olive_video": "media/libero_object_t07_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t07_olive.jpg"
     },
     {
      "task_id": 8,
      "task": "pick up the chocolate pudding and place it in the basket",
      "baseline_sr": 0.9,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 1.0,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t08_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t08_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t08_baseline.jpg",
+     "olive_video": "media/libero_object_t08_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t08_olive.jpg"
     },
     {
      "task_id": 9,
      "task": "pick up the orange juice and place it in the basket",
      "baseline_sr": 0.85,
      "baseline_n": 20,
-     "olive_sr": null,
-     "olive_n": null,
+     "olive_sr": 1.0,
+     "olive_n": 10,
      "baseline_video": "media/libero_object_t09_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_object_t09_baseline.jpg"
+     "baseline_thumb": "media/libero_object_t09_baseline.jpg",
+     "olive_video": "media/libero_object_t09_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_object_t09_olive.jpg"
     }
    ],
    "baseline_rerun": {
@@ -1535,7 +1559,10 @@
      "olive_n": null,
      "baseline_video": "media/libero_10_t06_baseline.mp4",
      "baseline_video_success": false,
-     "baseline_thumb": "media/libero_10_t06_baseline.jpg"
+     "baseline_thumb": "media/libero_10_t06_baseline.jpg",
+     "olive_video": "media/libero_10_t06_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_10_t06_olive.jpg"
     },
     {
      "task_id": 7,
@@ -1546,7 +1573,10 @@
      "olive_n": null,
      "baseline_video": "media/libero_10_t07_baseline.mp4",
      "baseline_video_success": false,
-     "baseline_thumb": "media/libero_10_t07_baseline.jpg"
+     "baseline_thumb": "media/libero_10_t07_baseline.jpg",
+     "olive_video": "media/libero_10_t07_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_10_t07_olive.jpg"
     },
     {
      "task_id": 8,
@@ -1557,7 +1587,10 @@
      "olive_n": null,
      "baseline_video": "media/libero_10_t08_baseline.mp4",
      "baseline_video_success": false,
-     "baseline_thumb": "media/libero_10_t08_baseline.jpg"
+     "baseline_thumb": "media/libero_10_t08_baseline.jpg",
+     "olive_video": "media/libero_10_t08_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_10_t08_olive.jpg"
     },
     {
      "task_id": 9,
@@ -1568,7 +1601,10 @@
      "olive_n": null,
      "baseline_video": "media/libero_10_t09_baseline.mp4",
      "baseline_video_success": true,
-     "baseline_thumb": "media/libero_10_t09_baseline.jpg"
+     "baseline_thumb": "media/libero_10_t09_baseline.jpg",
+     "olive_video": "media/libero_10_t09_olive.mp4",
+     "olive_video_success": true,
+     "olive_thumb": "media/libero_10_t09_olive.jpg"
     }
    ],
    "baseline_rerun": {
